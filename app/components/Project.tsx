@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Splide from "@splidejs/splide";
-import "@splidejs/splide/css";
 
 export default function Project() {
   const splideRef = useRef<HTMLDivElement | null>(null);

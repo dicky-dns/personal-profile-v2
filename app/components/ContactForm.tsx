@@ -3,7 +3,7 @@ export default function ContactForm() {
         <div className="container" id="contact">
           <div className="row">
               <div className="contact-heading">
-                  <img src="{{ asset('assets/images/sunglass.svg') }}" />
+                  <img src="/images/sunglass.svg" />
                   <h1 className="contact-title">The Backstage Pass</h1>
                   <p className="contact-subtitle">Add some zazz to ask any questions about projects, code, ideas, or collabs, and maybe some hot gossip (or incoherent ramblings) from the coolest in the world!</p>
               </div>
@@ -26,9 +26,6 @@ export default function ContactForm() {
                               <textarea id="message" name="message" className="form-input" placeholder="Your Message" required></textarea>
                           </div>
                       </form>
-                  </div>
-                  <div className="contact-right">
-                      
                   </div>
               </div>
           </div>

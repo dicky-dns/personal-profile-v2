@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "./globals.css";
+import "@splidejs/splide/css";
+import "material-icons/iconfont/material-icons.css";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

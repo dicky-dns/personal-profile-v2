@@ -1,4 +1,5 @@
 import AboutText from "./AboutText";
+import Experience from "./Experience";
 
 export default function About() {
   return (
@@ -12,6 +13,10 @@ export default function About() {
                         <AboutText />
                   </div>
               </div>
+          </div>
+
+          <div className="row">
+            <Experience />
           </div>
       </div>
   );

@@ -7,6 +7,7 @@ import Play from "./components/Coin";
 import Contribution from "./components/Contribution";
 import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
         <Project/>
      
         <ContactForm/>
+
+        <Footer/>
     </>
   );
 }
