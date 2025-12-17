@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,9 +26,83 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+        <div className="container">
+          <div className="navbar-header ">
+              <div className="row">
+                  <div className="col-4">
+                      <div className="navbar-navigate">
+                          <div className="navbar-menu">
+                                {[
+                                  { href: "/", label: "Home", img: "/images/home.svg", w: "w-[55px]" },
+                                  { href: "/#about", label: "About", img: "/images/hey2.svg", w: "w-[50px]" },
+                                  { href: "/#project", label: "Project", img: "/images/project.svg", w: "w-[50px]" },
+                                  { href: "/#contact", label: "Contact", img: "/images/contact.svg", w: "w-[40px]" },
+                                ].map((item) => (
+                                  <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className="text-dark text-decoration-none"
+                                  >
+                                    <span className="text-menu">{item.label}</span>
+                                    <span className="logo-menu">
+                                      <img className={item.w} src={item.img} alt={item.label} />
+                                    </span>
+                                  </Link>
+                                ))}
+                          </div>
+                          <Link href="#" className="button-hamburger"></Link>
+                      </div>
+                  </div>
+
+                  <div className="col-4">
+                      <div className="d-flex align-items-center justify-content-center h-100">
+                          <Link href="/" className="navbar-brand navbar-image"
+                              style={{ backgroundImage: "url('/images/logo.png')"}}></Link>
+                      </div>
+                  </div>
+
+
+                  <div className="col-4">
+                      <div className="d-flex align-items-center justify-content-end h-100">
+                          <Link href="/contact" className="button-dark-play">Let's Play!</Link>
+                          <Link href="#" className="button-hamburger"></Link>
+                      </div>
+                  </div>
+              </div>
+              <div className="nav-menu-mobile">
+                  <Link href="#" className="button-close-mobile">
+                      <img src="images/close-white.svg" alt="Close Menu" />
+                  </Link>
+                
+                  <div className="navbar-menu-mobile">
+                      <Link href="/" className="navbar-menu-mobile text-dark text-decoration-none">
+                          <span className="text-menu">Home</span>
+                          <span className="logo-menu"><img width="55px" src="images/home.svg" />
+                          </span>
+                      </Link>
+                      <Link href="/#about" className="navbar-menu-mobile text-dark text-decoration-none">
+                          <span className="text-menu">About</span>
+                          <span className="logo-menu"><img style={{ width: "50px" }} src="images/hey2.svg" />
+                          </span>
+                      </Link>
+                      <Link href="/#project" className="navbar-menu-mobile text-dark text-decoration-none">
+                          <span className="text-menu">Project</span>
+                          <span className="logo-menu"><img style={{ width: "50px" }} src="images/project.svg" />
+                          </span>
+                      </Link>
+                      <Link href="/#contact" className="navbar-menu-mobile text-dark text-decoration-none">
+                          <span className="text-menu">Contact</span>
+                          <span className="logo-menu"><img width="40px" src="images/contact.svg" />
+                          </span>
+                      </Link>
+                      <div className="navbar-menu-mobile-footer">
+                          <Link href="{{ route('contact" className="button-dark-play d-block">Let's Play!</Link>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
         {children}
       </body>
     </html>
