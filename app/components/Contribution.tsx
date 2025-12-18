@@ -40,7 +40,6 @@ export default function Contribution() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  /* ================= FETCH DATA ================= */
   useEffect(() => {
     const fetchData = async () => {
       const client = new GraphQLClient(GITHUB_GRAPHQL_URL, {
@@ -67,7 +66,6 @@ export default function Contribution() {
     fetchData();
   }, []);
 
-  /* ================= TOOLTIP ================= */
   useEffect(() => {
     const containers = document.querySelectorAll(".contribution-body");
 
