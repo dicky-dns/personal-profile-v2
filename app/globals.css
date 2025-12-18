@@ -290,7 +290,7 @@ body a, body .button{
 
 .hero .hero-image-desktop img,
 .hero .hero-image-mobile img {
-    height: calc(100dvh - 190px);
+    height: calc(100dvh - 130px);
     width: auto;
     left: 50%;
     transform: perspective(1px) translateY(-150%) translateX(-50%);
@@ -605,7 +605,6 @@ a.text-about svg{
     border: 2px solid black;
     border-radius: 5px;
     outline-offset: -2px;
-    padding: 20px;
     cursor: url(/images/eye.svg) 20 20, pointer !important;
     height: fit-content;
 }
@@ -613,6 +612,24 @@ a.text-about svg{
     outline: black solid 4px;
     outline-offset: -5px;
     border-radius: 5px;
+}
+.experience-content{
+    padding:15px;
+}
+.experience-header{
+    padding: 6px 10px;
+    width: 100%;
+    background-color: #000;
+}
+.experience-header span {
+    content: " ";
+    opacity: .75;
+    background: #fff;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    display: inline-block;
 }
 .experience-title {
     font-weight: 600;
@@ -630,9 +647,8 @@ a.text-about svg{
 }
 .experience-period{
     font-weight: 700;
-    font-size: 13px;
-    color: #848b92;
-    margin-top: 10px;
+    font-size: 15px;
+    margin-top: 30px;
 }
 .experience-description{
     font-weight: 400;

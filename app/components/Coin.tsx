@@ -17,8 +17,9 @@ export default function Coin() {
       const windowHeight = window.innerHeight;
 
       if (rect.top < windowHeight && rect.bottom > 0) {
+        const speed = 1.5; 
         const scrollProgress =
-          1 - rect.bottom / (rect.height + windowHeight);
+          (1 - rect.bottom / (rect.height + windowHeight)) * speed;
 
         const clamped = Math.min(Math.max(scrollProgress, 0), 1);
 

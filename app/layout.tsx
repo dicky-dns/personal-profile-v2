@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "@splidejs/splide/dist/css/splide.min.css";
 import "material-icons/iconfont/material-icons.css";
@@ -21,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
+        
         {children}
       </body>
     </html>

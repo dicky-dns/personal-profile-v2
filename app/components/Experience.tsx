@@ -40,17 +40,21 @@ export default function Experience() {
           {experiences.map((experience, index) => (
             <div key={index} className="experience-box">
               <div className="inline-block relative">
-                <div className="experience-title">
-                  {experience.title}
+                <div className="experience-header">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
-                   <div className="experience-company">
-                  {experience.company}
-                </div>
-                <div className="experience-period">
-                  {experience.period}
-                </div>
-                <div className="text-[13px]">
-                  {experience.position}
+                <div className="experience-content">
+                  <div className="experience-title">
+                    {experience.title}
+                  </div>
+                    <div className="experience-company">
+                    {experience.company}
+                  </div>
+                  <div className="experience-period">
+                    {experience.period}
+                  </div>
                 </div>
               </div>
             </div>
