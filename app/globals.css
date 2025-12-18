@@ -116,6 +116,12 @@ body a, body .button{
     display: none;
 }
 
+.navbar-menu a .logo-menu img,
+.navbar-menu-mobile a .logo-menu img{
+    width: 60px !important;
+    position: relative !important;
+}
+
 .navbar-menu a:hover .text-menu,
 .navbar-menu-mobile a:hover .text-menu {
     font-weight: 700;

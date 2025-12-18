@@ -47,7 +47,7 @@ export default function Contribution() {
         headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
 
-      const res: any = await client.request(QUERY);
+      const res = await client.request(QUERY);
       const calendar =
         res.user.contributionsCollection.contributionCalendar;
 
