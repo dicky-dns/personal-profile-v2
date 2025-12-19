@@ -1,34 +1,169 @@
+"use client";
+
+import { useRef, useActionState } from "react";
+import { useFormStatus } from "react-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Loader, Mail } from "lucide-react";
+import Image from "next/image";
+
+import { formSubmission } from "@/actions/formAction";
+import useIsomorphicLayoutEffect from "@/hooks/UseIsomorphicLayoutEffect";
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      className="btn btn-dark-submit"
+      disabled={pending}
+    >
+      {pending ? (
+        <>
+          <Loader className="spinner-border spinner-border-sm" />
+          <span>Sending...</span>
+        </>
+      ) : (
+        <>
+          <Mail size={20} />
+          <span>Send</span>
+        </>
+      )}
+    </button>
+  );
+}
+
 export default function ContactForm() {
-    return (
-        <div className="container" id="contact">
-          <div className="row">
-              <div className="contact-heading">
-                  <img src="/images/sunglass.svg" />
-                  <h1 className="contact-title">The Backstage Pass</h1>
-                  <p className="contact-subtitle">Add some zazz to ask any questions about projects, code, ideas, or collabs, and maybe some hot gossip (or incoherent ramblings) from the coolest in the world!</p>
-              </div>
-              <div className="contact-content">
-                  <div className="contact-left">
-                      
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const [state, formAction] = useActionState(formSubmission, {
+    errors: {
+      name: false,
+      email: false,
+      subject: false,
+      message: false,
+    },
+  });
+
+  const { errors } = state;
+
+  return (
+    <div ref={wrapperRef} className="container my-5">
+      <div className="row">
+        <div className="contact-heading text-center">
+          <Image
+            width={100}
+            height={100}
+            src="/images/sunglass.svg"
+            alt="Contact"
+          />
+          <h1 className="contact-title">Say Hello</h1>
+          <p className="contact-subtitle">
+            Questions<span>, thoughts, collaborations, </span> or professional connections —
+            feel free to get in touch.
+          </p>
+        </div>
+
+        <div className="contact-content">
+          <div className="contact-section">
+            <form
+              ref={formRef}
+              action={async (formData) => {
+                await formAction(formData);
+
+                if (
+                  !errors.name &&
+                  !errors.email &&
+                  !errors.subject &&
+                  !errors.message
+                ) {
+                  formRef.current?.reset();
+                }
+              }}
+              className="row list-form"
+            >
+                
+              <div className="col-12">
+                <label className="form-label">Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  className={`form-input ${
+                    errors.name ? "is-invalid" : ""
+                  }`}
+                  placeholder="Your name"
+                  autoComplete="off"
+                />
+                {errors.name && (
+                  <div className="invalid-feedback">
+                    Please enter a valid name
                   </div>
-                  <div className="contact-section">
-                      <form>
-                          <div className="list-form">
-                              <label htmlFor="name">Name</label>
-                              <input type="text" id="name" name="name" className="form-input" placeholder="Your Name" required/>
-                          </div>
-                          <div className="list-form">
-                              <label htmlFor="email">Email</label>
-                              <input type="email" id="email" name="email" className="form-input" placeholder="Your Email" required/>
-                          </div>
-                          <div className="list-form">
-                              <label htmlFor="message">Message</label>
-                              <textarea id="message" name="message" className="form-input" placeholder="Your Message" required></textarea>
-                          </div>
-                      </form>
-                  </div>
+                )}
               </div>
+
+              <div className="col-12">
+                <label className="form-label">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  className={`form-input ${
+                    errors.email ? "is-invalid" : ""
+                  }`}
+                  placeholder="Your email"
+                  autoComplete="off"
+                />
+                {errors.email && (
+                  <div className="invalid-feedback">
+                    Please enter a valid email address
+                  </div>
+                )}
+              </div>
+
+              <div className="col-12">
+                <label className="form-label">Subject *</label>
+                <input
+                  type="text"
+                  name="subject"
+                  className={`form-input ${
+                    errors.subject ? "is-invalid" : ""
+                  }`}
+                  placeholder="Subject"
+                  autoComplete="off"
+                />
+                {errors.subject && (
+                  <div className="invalid-feedback">
+                    Please enter a valid subject
+                  </div>
+                )}
+              </div>
+
+              <div className="col-12">
+                <label className="form-label">Message *</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  className={`form-input ${
+                    errors.message ? "is-invalid" : ""
+                  }`}
+                  placeholder="Your message"
+                />
+                {errors.message && (
+                  <div className="invalid-feedback">
+                    Please enter a message at least 3 characters long
+                  </div>
+                )}
+              </div>
+
+              {/* SUBMIT */}
+              <div className="col-12">
+                <SubmitButton />
+              </div>
+            </form>
           </div>
-      </div> 
-    );
+        </div>
+      </div>
+    </div>
+  );
 }

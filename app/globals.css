@@ -788,7 +788,7 @@ a.text-about svg{
     line-height: 1.35;
 }
 .play-section{
-    margin-bottom: 45px;
+    margin-bottom: 65px;
 }
 .contribution-heading{
     width: 100%;
@@ -1008,7 +1008,6 @@ a.text-about svg{
 }
 .project-heading{
     padding-top: 20px;
-    padding-left: 0;
     text-align: center;
 }
 .project-heading img{
@@ -1129,14 +1128,14 @@ a.text-about svg{
 /* Contact  */
 
 .contact-heading{
-    margin-top: 50px;
+    margin: 50px 0 35px;
     padding-left: 0;
     text-align: center;
 }
 .contact-heading img{
     width: 100%;
     max-width: 120px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding-top: 20px;
 }
 .contact-heading .contact-title {
@@ -1145,7 +1144,7 @@ a.text-about svg{
     font-family: var(--font-rubik);
 }
 .contact-heading .contact-subtitle {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
     color: #000;
     margin-top: 10px;
@@ -1154,22 +1153,56 @@ a.text-about svg{
 }
 .contact-content{
     display: flex;
+    justify-content: center;
 }
 .contact-left{
     width: 25%;
 }
 .contact-section{
-    width: 50%;
+    width: 55%;
 }
 .contact-right{
     width: 25%;
 }
 .list-form label{
     display: flex;
+    font-size: 16px;
+    margin-bottom: 4px;
 }
 .list-form .form-input {
     width: 100%;
+    border: #000 2px solid;
+    border-radius: 5px;
+    padding: 12px 10px;
+    margin-bottom: 20px;
 }
+
+.list-form .form-input:focus,
+.list-form .form-input:hover {
+    outline: black solid 4px;
+    outline-offset: -5px;
+    border-radius: 5px;
+}
+
+.btn-dark-submit {
+    background-color: #000;
+    font-weight: 500;;
+    color: #fff;
+    padding: 9px 21px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #000;
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+}
+.btn-dark-submit:hover {
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #000;
+
+}
+
 /* End Contact */
 
 /* play page */
@@ -1706,6 +1739,9 @@ a.text-about svg{
     .contribution-right {
         width: 30%; 
     }
+     .contact-section{
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 843px) {
@@ -1893,7 +1929,9 @@ a.text-about svg{
         display: block;
         font-size: 14px;
     }
-
+    .contact-section{
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 620px) {  
@@ -1972,6 +2010,35 @@ a.text-about svg{
     }
     .contribution-right {
         width: 40%; 
+    }
+    .contact-section{
+        width: 100%;
+    }
+
+    .contact-heading {
+        padding: 0 25px;
+    }
+
+    .contact-heading .contact-title {
+        font-size: 35px;
+    }
+
+    .contact-heading .contact-subtitle {
+        width: 100%;
+    }
+
+    .contact-heading .contact-subtitle span{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .contact-section{
+        padding: 0 16px;
+    }
+
+    .list-form .form-input {
+        margin-bottom: 13px;
     }
 }
 
