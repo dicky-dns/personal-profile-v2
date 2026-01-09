@@ -4,6 +4,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import "material-icons/iconfont/material-icons.css";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import RightClickWarning from "./components/RightClickWarning";
 
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
+        {/* <RightClickWarning /> */}
         
         {children}
       </body>

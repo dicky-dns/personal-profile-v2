@@ -84,7 +84,7 @@ export default function Experience() {
   return (
     <section className="experience-section">
       <div className="experience-heading">
-        <Image src="/images/contribution.png" alt="Logo" width={400} height={100} />
+        <Image src="/images/dev-journey.png" alt="Logo" width={400} height={100} />
       </div>
       <div className="experience-subheading">
         The path I’ve taken, the things I’ve built, and the skills I’ve leveled up.

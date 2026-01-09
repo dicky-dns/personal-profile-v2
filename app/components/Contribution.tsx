@@ -1,30 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { gql, GraphQLClient } from "graphql-request";
+import { useEffect, useMemo } from "react";
 import { parseISO, format } from "date-fns";
-
-const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
-const ACCESS_TOKEN = process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN!;
-const USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME!;
-
-const QUERY = gql`
-{
-  user(login: "${USERNAME}") {
-    contributionsCollection {
-      contributionCalendar {
-        totalContributions
-        weeks {
-          contributionDays {
-            date
-            contributionCount
-          }
-        }
-      }
-    }
-  }
-}
-`;
+import { useGetGithubData } from "@/hooks/useGetGithubData";
 
 interface Day {
   date: string | null;
@@ -36,35 +14,24 @@ interface Week {
 }
 
 export default function Contribution() {
-  const [weeks, setWeeks] = useState<Week[]>([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const { data, isLoading, isReady } = useGetGithubData();
+  const user = data?.user || null;
+  const calendar = data?.user?.contributionsCollection.contributionCalendar;
+  const total = calendar?.totalContributions ?? 0;
+  const publicRepos = data?.publicRepos ?? 0;
+  const totalStars = data?.totalStars ?? 0;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const client = new GraphQLClient(GITHUB_GRAPHQL_URL, {
-        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
-      });
+  const weeks = useMemo<Week[]>(() => {
+    if (!calendar?.weeks) return [];
 
-      const res = await client.request(QUERY);
-      const calendar =
-        res.user.contributionsCollection.contributionCalendar;
-
-      const normalized = calendar.weeks.map((week: Week) => {
-        const days = [...week.contributionDays];
-        while (days.length < 7) {
-          days.unshift({ date: null, contributionCount: 0 });
-        }
-        return { contributionDays: days };
-      });
-
-      setWeeks(normalized);
-      setTotal(calendar.totalContributions);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
+    return calendar.weeks.map((week: Week) => {
+      const days = [...week.contributionDays];
+      while (days.length < 7) {
+        days.unshift({ date: null, contributionCount: 0 });
+      }
+      return { contributionDays: days };
+    });
+  }, [calendar]);
 
   useEffect(() => {
     const containers = document.querySelectorAll(".contribution-body");
@@ -115,7 +82,7 @@ export default function Contribution() {
     return "#1eff00";
   };
 
-  if (loading) {
+  if (isLoading || !isReady) {
     return (
       <div className="container">
         <div className="contribution-heading">
@@ -206,19 +173,19 @@ export default function Contribution() {
             <div className="contribution-right">
                 <div className="github-account">
                     <div className="github-heading">
-                        <img src="{{ $githubInfo['avatar_url'] }}" alt="Github Heading" />
+                        <img src={user?.avatarUrl || ""} alt="Github Heading" />
                     </div>
                     <div className="github-content">
                         <div className="github-name">
-                            <div className="github-username">username</div>
+                            <div className="github-username">{user?.login || ""}</div>
                         </div>
                         <div className="github-activity">
-                                <span>Followers 3</span>
-                            <span>Following 0</span>
+                            <span>Followers {user?.followers?.totalCount ?? 0}</span>
+                            <span>Following {user?.following?.totalCount ?? 0}</span>
                         </div>  
-                        <div className="wakatime-activity">
-                            21 hrs 45mins coding <br/>in last week 
-                            <a className="material-icons" target="_blank" href="https://wakatime.com/@dickydns">open_in_new</a>
+                        <div className="github-repo-activity">
+                            {publicRepos} public repositories from GitHub
+                            <a className="material-icons" target="_blank" href="https://github.com/dicky-dns">open_in_new</a>
                         </div>  
                     </div>
                     <div className="github-button">

@@ -29,15 +29,40 @@ body {
     color: #222;
     font-family: var(--font-heebo);
     overflow-x: hidden;
+    /* user-select: none; */
 }
 
 html, body, form label {
-    cursor: url(/images/cursor-default.png) 4 4, auto !important;
+    cursor: url(/images/cdefault.png) 4 4, auto !important;
 }
 
 
 body a, body .button{
-    cursor: url(/images/cursor-pointer.png) 4 4, pointer !important;
+    cursor: url(/images/cpointer.png) 4 4, pointer !important;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;        
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;   
+}
+
+.right-click-toast {
+    position: fixed;
+    z-index: 2147483000;
+    background: #000;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    transform: translate(12px, 12px);
+    max-width: 220px;
 }
 
 .page-wrapper{
@@ -851,14 +876,14 @@ a.text-about svg{
     gap: 10px;
 }
 
-.wakatime-activity{
+.github-repo-activity{
     text-align: center;
     font-size: 13px;
     line-height: 1.1;
     margin-bottom: 10px;
 }
 
-.wakatime-activity a{
+.github-repo-activity a{
     font-size: 13px;
     text-decoration: none;
     position: relative;
@@ -1037,7 +1062,7 @@ a.text-about svg{
     width: 4em;
     height: 4rem;
     background-color: transparent;
-    cursor: url(/images/cursor-pointer.png) 4 4, pointer !important;
+    cursor: url(/images/cpointer.png) 4 4, pointer !important;
     outline: none       ;
 }
 .projects .splide__arrows{
@@ -1055,7 +1080,7 @@ a.text-about svg{
 }
 .projects .splide__pagination__page {
     background-color: #000;
-    cursor: url(/images/cursor-pointer.png) 4 4, pointer !important;
+    cursor: url(/images/cpointer.png) 4 4, pointer !important;
 }
 
 .project-window {
@@ -1175,6 +1200,7 @@ a.text-about svg{
     border-radius: 5px;
     padding: 12px 10px;
     margin-bottom: 20px;
+    cursor: url(/images/text.svg) 4 4, pointer !important;
 }
 
 .list-form .form-input:focus,
@@ -1190,7 +1216,7 @@ a.text-about svg{
     color: #fff;
     padding: 9px 21px;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: url(/images/cpointer.png) 4 4, pointer !important;
     border: 2px solid #000;
     text-decoration: none;
     display: flex;
@@ -2396,6 +2422,9 @@ a.text-about svg{
 
 #add-to-cart{
     width: 100%;
+}
+footer {
+    margin-top: 20px;
 }
 footer, footer a{
     color: #000;
