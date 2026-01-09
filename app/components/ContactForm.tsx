@@ -91,7 +91,7 @@ export default function ContactForm() {
               className="row list-form"
             >
                 
-              <div className="col-12">
+              <div className="col-12 form-group">
                 <label className="form-label">Name *</label>
                 <input
                   type="text"
@@ -109,7 +109,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              <div className="col-12">
+              <div className="col-12 form-group">
                 <label className="form-label">Email *</label>
                 <input
                   type="email"
@@ -127,7 +127,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              <div className="col-12">
+              <div className="col-12 form-group">
                 <label className="form-label">Subject *</label>
                 <input
                   type="text"
@@ -145,7 +145,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              <div className="col-12">
+              <div className="col-12 form-group">
                 <label className="form-label">Message *</label>
                 <textarea
                   name="message"
@@ -166,18 +166,7 @@ export default function ContactForm() {
               <div className="col-12">
                 <SubmitButton />
               </div>
-              {message && showMessage && (
-                <div className="col-12">
-                  <div
-                    className={`form-feedback ${
-                      status === "success" ? "is-success" : "is-error"
-                    }`}
-                    role="status"
-                  >
-                    {message}
-                  </div>
-                </div>
-              )}
+
             </form>
           </div>
         </div>

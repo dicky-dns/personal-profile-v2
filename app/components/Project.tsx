@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Splide from "@splidejs/splide";
+import { projects } from "@/lib/projectData";
 
 export default function Project() {
   const splideRef = useRef<HTMLDivElement | null>(null);
@@ -21,7 +22,7 @@ export default function Project() {
       breakpoints: {
         991: {
           perPage: 1,
-          wheel: true,
+          wheel: false,
         },
       },
     });
@@ -47,57 +48,33 @@ export default function Project() {
         >
           <div className="splide__track">
             <ul className="splide__list">
-              <li className="splide__slide">
-                <div className="project-window">
-                  <div className="project-window-top">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-
-                  <div className="project-content">
-                    <h1 className="project-title">Company Profile</h1>
-                    <div className="project-description">
-                      This is a simple CSS Browser window
+              {projects.map((project) => (
+                <li className="splide__slide" key={project.id}>
+                  <div className="project-window">
+                    <div className="project-window-top">
+                      <span />
+                      <span />
+                      <span />
                     </div>
-                    <div className="project-tech">
-                      <span>#Laravel</span>
-                      <span>#Blade</span>
-                      <span>#MySQL</span>
+
+                    <div className="project-content">
+                      <h1 className="project-title">{project.title}</h1>
+                      <div className="project-description">
+                        {project.description}
+                      </div>
+                      <div className="project-tech">
+                        {project.tech.map((item) => (
+                          <span key={item}>#{item}</span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="project-image">
-                    <img src="/images/projects/1.png" alt="Project 1" />
-                  </div>
-                </div>
-              </li>
-
-              <li className="splide__slide">
-                <div className="project-window">
-                  <div className="project-window-top">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-
-                  <div className="project-content">
-                    <h1 className="project-title">Movie Web</h1>
-                    <div className="project-description">
-                      This is a simple CSS Browser window
-                    </div>
-                    <div className="project-tech">
-                      <span>#Laravel</span>
-                      <span>#Vue</span>
-                      <span>#MySQL</span>
+                    <div className="project-image">
+                      <img src={project.image} alt={project.title} />
                     </div>
                   </div>
-
-                  <div className="project-image">
-                    <img src="/images/projects/2.png" alt="Project 2" />
-                  </div>
-                </div>
-              </li>
+                </li>
+              ))}
             </ul>
           </div>
 

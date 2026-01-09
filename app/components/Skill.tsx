@@ -99,7 +99,7 @@ export default function Skill() {
 
           <div className="cta">
             <div className="project-cta-copy">
-              Need help for build a website?
+              Need help for something?
             </div>
             <a href="/contact" className="button-dark-play">
               Let&apos;s Play!

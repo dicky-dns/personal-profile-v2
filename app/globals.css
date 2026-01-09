@@ -583,9 +583,9 @@ img {
 
 .text-about,.text-about a {
   display: inline-block;
-  opacity: 0.3;
+  opacity: 0.2;
   transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.3s ease;
   margin-right: 6px;
   margin-bottom: 8px;
   font-weight: 400;
@@ -595,7 +595,7 @@ img {
 }
 
 a.text-about{
-  color: rgb(0, 0, 0);
+  color: #000;
   text-decoration: none;
   font-weight: 700;
 }
@@ -1091,6 +1091,7 @@ a.text-about svg{
   -webkit-box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 0.39);
   -moz-box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 0.39);
   box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 0.39);
+  overflow: hidden;
   user-select: none;
 }
 .project-window:hover{
@@ -1147,6 +1148,7 @@ a.text-about svg{
 .project-window .project-image img {
     height: 100%;
     width: auto;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4));
 }
 /* End Project */
 
@@ -1194,12 +1196,14 @@ a.text-about svg{
     font-size: 16px;
     margin-bottom: 4px;
 }
+.list-form .form-group {
+    margin-bottom: 20px;
+}
 .list-form .form-input {
     width: 100%;
     border: #000 2px solid;
     border-radius: 5px;
     padding: 12px 10px;
-    margin-bottom: 20px;
     cursor: url(/images/text.svg) 4 4, pointer !important;
 }
 
@@ -1700,7 +1704,7 @@ a.text-about svg{
 
 @media screen and (max-width: 991px) {
     .text-about, .text-about a {
-        line-height: 1;
+        line-height: 1.5;
     }
     .hero .hero-image-desktop {
         width: 100%;
@@ -1783,6 +1787,21 @@ a.text-about svg{
     }
      .contact-section{
         width: 80%;
+    }
+    .projects .splide__slide {
+        padding: 0 5px;
+    }
+    .project-window {
+        display: block;
+    }
+    .project-window .project-image {
+        height: auto;
+        width: 100%;
+        justify-content: end;
+    }
+    .project-window .project-image img {
+        height: auto;
+        width: calc(100% - 20px);
     }
 }
 
