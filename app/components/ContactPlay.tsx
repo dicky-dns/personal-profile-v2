@@ -1,9 +1,47 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 export default function ContactPlay() {
   const armsRef = useRef<HTMLDivElement[]>([]);
+  const totalArms = 15;
+  const arcStart = 330;
+  const arcSpan = 240;
+  const armClassNames = [
+    "arm-one",
+    "arm-two",
+    "arm-three",
+    "arm-four",
+    "arm-five",
+    "arm-six",
+    "arm-seven",
+    "arm-eight",
+    "arm-nine",
+    "arm-ten",
+    "arm-eleven",
+    "arm-twelve",
+    "arm-thirteen",
+    "arm-fourteen",
+    "arm-fifteen",
+  ];
+
+    const imglassNames = [
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-0",
+    "image-23",
+    "image-24",
+    "image-25",
+    "image-26",
+    "image-27",
+    "image-28",
+    "image-29",
+  ];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -81,16 +119,22 @@ export default function ContactPlay() {
       </div>
 
       <div className="arms">
-        {Array.from({ length: 15 }).map((_, i) => (
+        {Array.from({ length: totalArms }).map((_, i) => (
           <div
             key={i}
             ref={(el) => {
               if (el) armsRef.current[i] = el;
             }}
-            className={`arm-size arm-${i + 1}`}
+            className={`arm-size ${armClassNames[i]}`}
+            style={
+              {
+                "--arm-angle": `${arcStart + (arcSpan / (totalArms - 1)) * i}deg`,
+              } as CSSProperties
+            }
           >
             <img
               src={`/images/hand${i + 1}.svg`}
+              className={imglassNames[i]}
               alt={`Hand ${i + 1}`}
               loading="lazy"
             />

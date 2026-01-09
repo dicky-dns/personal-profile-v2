@@ -1202,6 +1202,19 @@ a.text-about svg{
     border: 2px solid #000;
 
 }
+.list-form .form-feedback {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 2px solid #000;
+    font-size: 14px;
+}
+.list-form .form-feedback.is-success {
+    background-color: #e9f7ef;
+}
+.list-form .form-feedback.is-error {
+    background-color: #fdecea;
+}
 
 /* End Contact */
 
@@ -1282,6 +1295,9 @@ a.text-about svg{
     position: relative;
     top: -200px;
     z-index: -1;
+    --arm-radius: 26vw;
+    --arm-center-x: 50%;
+    --arm-center-y: 58%;
 }
 
 @keyframes fadeIn {
@@ -2380,4 +2396,7 @@ a.text-about svg{
 
 #add-to-cart{
     width: 100%;
+}
+footer, footer a{
+    color: #000;
 }

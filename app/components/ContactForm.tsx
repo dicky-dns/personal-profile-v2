@@ -1,14 +1,10 @@
 "use client";
 
-import { useRef, useActionState } from "react";
+import { useEffect, useRef, useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Loader, Mail } from "lucide-react";
 import Image from "next/image";
-
 import { formSubmission } from "@/actions/formAction";
-import useIsomorphicLayoutEffect from "@/hooks/UseIsomorphicLayoutEffect";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -37,6 +33,9 @@ function SubmitButton() {
 export default function ContactForm() {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const lastStatusRef = useRef<"idle" | "success" | "error">("idle");
+  const hideTimerRef = useRef<number | null>(null);
+  const [showMessage, setShowMessage] = useState(false);
 
   const [state, formAction] = useActionState(formSubmission, {
     errors: {
@@ -45,9 +44,18 @@ export default function ContactForm() {
       subject: false,
       message: false,
     },
+    status: "idle",
+    message: null,
   });
 
-  const { errors } = state;
+  const { errors, status, message } = state;
+
+  useEffect(() => {
+    if (status === "success" && lastStatusRef.current !== "success") {
+      formRef.current?.reset();
+    }
+    lastStatusRef.current = status;
+  }, [status]);
 
   return (
     <div ref={wrapperRef} className="container my-5">
@@ -72,15 +80,13 @@ export default function ContactForm() {
               ref={formRef}
               action={async (formData) => {
                 await formAction(formData);
-
-                if (
-                  !errors.name &&
-                  !errors.email &&
-                  !errors.subject &&
-                  !errors.message
-                ) {
-                  formRef.current?.reset();
+                setShowMessage(true);
+                if (hideTimerRef.current) {
+                  window.clearTimeout(hideTimerRef.current);
                 }
+                hideTimerRef.current = window.setTimeout(() => {
+                  setShowMessage(false);
+                }, 3000);
               }}
               className="row list-form"
             >
@@ -160,6 +166,18 @@ export default function ContactForm() {
               <div className="col-12">
                 <SubmitButton />
               </div>
+              {message && showMessage && (
+                <div className="col-12">
+                  <div
+                    className={`form-feedback ${
+                      status === "success" ? "is-success" : "is-error"
+                    }`}
+                    role="status"
+                  >
+                    {message}
+                  </div>
+                </div>
+              )}
             </form>
           </div>
         </div>
