@@ -75,6 +75,14 @@ export default function ContactForm() {
         </div>
 
         <div className="contact-content">
+          <div className="contact-side">
+            <img className="image-left-1" src="/images/come-in.svg" alt="Image" />
+            <img className="image-left-2" src="/images/crayon.svg" alt="Image" />
+            <img className="image-left-3" src="/images/crayon.svg" alt="Image" />
+            <img className="image-left-4" src="/images/headset.svg" alt="Image" />
+            <img className="image-left-5" src="/images/donut.svg" alt="Image" />
+            <img className="image-left-6" src="/images/computer-crash.svg" alt="Image" />
+          </div>
           <div className="contact-section">
             <form
               ref={formRef}
@@ -168,6 +176,13 @@ export default function ContactForm() {
               </div>
 
             </form>
+          </div>
+          <div className="contact-side">
+            <img className="image-right-1" src="/images/baloon.svg" alt="Image" />
+            <img className="image-right-2" src="/images/testing.svg" alt="Image" />
+            <img className="image-right-3" src="/images/drum.svg" alt="Image" />
+            <img className="image-right-4" src="/images/music.svg" alt="Image" />
+            <img className="image-right-5" src="/images/caution.svg" alt="Image" />
           </div>
         </div>
       </div>
