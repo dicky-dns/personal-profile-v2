@@ -1,7 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const STORAGE_KEY = "scrollTarget";
 
 export default function Navbar(){
+    const pathname = usePathname();
+    const scrollToSection = (id: string | null) => (event: React.MouseEvent) => {
+      if (pathname !== "/") {
+        if (id) {
+          sessionStorage.setItem(STORAGE_KEY, id);
+        } else {
+          sessionStorage.removeItem(STORAGE_KEY);
+        }
+        return;
+      }
+
+      event.preventDefault();
+
+      if (!id) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    const isHome = pathname === "/";
+
     return ( 
         <div className="container">
           <div className="navbar-header ">
@@ -10,15 +41,20 @@ export default function Navbar(){
                     <div className="navbar-navigate">
                         <div className="navbar-menu">
                               {[
-                                { href: "/", label: "Home", Image: "/images/menu-home.png"},
-                                { href: "/#about", label: "About", Image: "/images/menu-about.png" },
-                                { href: "/#project", label: "Project", Image: "/images/menu-project.png" },
-                                { href: "/#contact", label: "Contact", Image: "/images/menu-contact.png" },
+                                { label: "Home", Image: "/images/menu-home.png", sectionId: null },
+                                { label: "About", Image: "/images/menu-about.png", sectionId: "about" },
+                                { label: "Project", Image: "/images/menu-project.png", sectionId: "project" },
+                                { label: "Contact", Image: "/images/menu-contact.png", sectionId: "contact" },
                               ].map((item) => (
                                 <Link
                                   key={item.label}
-                                  href={item.href}
+                                  href={
+                                    item.sectionId && isHome
+                                      ? `/#${item.sectionId}`
+                                      : "/"
+                                  }
                                   className="text-dark text-decoration-none"
+                                  onClick={scrollToSection(item.sectionId)}
                                 >
                                   <span className="text-menu">{item.label}</span>
                                   <span className="logo-menu">
@@ -52,25 +88,41 @@ export default function Navbar(){
                 </Link>
                 
                 <div className="navbar-menu-mobile">
-                    <Link href="/" className="navbar-menu-mobile text-dark text-decoration-none">
+                    <Link
+                      href="/"
+                      className="navbar-menu-mobile text-dark text-decoration-none"
+                      onClick={scrollToSection(null)}
+                    >
                       <span className="text-menu">Home</span>
                       <span className="logo-menu">
                           <Image width={125} height={120} alt="Menu" src="/images/menu-home.png" />
                       </span>
                     </Link>
-                    <Link href="/#about" className="navbar-menu-mobile text-dark text-decoration-none">
+                    <Link
+                      href={isHome ? "/#about" : "/"}
+                      className="navbar-menu-mobile text-dark text-decoration-none"
+                      onClick={scrollToSection("about")}
+                    >
                       <span className="text-menu">About</span>
                       <span className="logo-menu">
                         <Image width={50} height={50} alt="Menu" src="/images/menu-about.png" />
                       </span>
                     </Link>
-                    <Link href="/#project" className="navbar-menu-mobile text-dark text-decoration-none">
+                    <Link
+                      href={isHome ? "/#project" : "/"}
+                      className="navbar-menu-mobile text-dark text-decoration-none"
+                      onClick={scrollToSection("project")}
+                    >
                       <span className="text-menu">Project</span>
                       <span className="logo-menu">
                         <Image width={50} height={50} alt="Menu" src="/images/menu-project.png" />
                       </span>
                     </Link>
-                    <Link href="/#contact" className="navbar-menu-mobile text-dark text-decoration-none">
+                    <Link
+                      href={isHome ? "/#contact" : "/"}
+                      className="navbar-menu-mobile text-dark text-decoration-none"
+                      onClick={scrollToSection("contact")}
+                    >
                       <span className="text-menu">Contact</span>
                       <span className="logo-menu">
                         <Image width={40} height={40} alt="Menu" src="/images/menu-contact.png" />

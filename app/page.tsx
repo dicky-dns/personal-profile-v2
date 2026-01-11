@@ -8,10 +8,12 @@ import Contribution from "./components/Contribution";
 import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import ScrollToSection from "./components/ScrollToSection";
 
 export default function Home() {
   return (
     <>
+        <ScrollToSection/>
         <Hero/>
       
         <About/>

@@ -1,5 +1,6 @@
 "use client";
 
+import { List } from "lucide-react";
 import { useState } from "react";
 
 const powerItems = [
@@ -22,13 +23,78 @@ const characters = [
 ];
 
 const project_types = [
-    { id: "default",},
-    { id: "dev-stack",},
-    { id: "database",},
-    { id: "uses",},
-    { id: "technical",},
-    { id: "interpersonal",},
-    { id: "interest",},
+    { id: "default",
+      list: [
+        "3+ years web dev experience",
+        "Clean & scalable builds",
+        "Strong problem solver",
+        "Performance-minded dev",
+        "Fast learner & adapter",
+        "Solo or team player",
+        "Product-driven coder"
+      ]
+    },
+    { id: "dev-stack",
+      list: [
+        "HTML, CSS",
+        "Tailwind CSS, Bootstrap",
+        "JavaScript, jQuery",
+        "Vue.js, Next.js",
+        "PHP, Laravel, CodeIgniter"
+      ]
+    },
+    { id: "database",
+      list: [
+        "MariaDB / MySQL",
+        "PostgreSQL",
+        "SQLite",
+      ]
+    },
+    { id: "uses",
+      list: [
+        "Linux (Ubuntu) & Windows",
+        "VS Code as code editor",
+        "Git & GitHub",
+        "Swagger documentation code",
+        "Postman as API tester", 
+        "Navicat database manager", 
+        "Zsh-rc shell terminal", 
+        "Adobe Photoshop for graphics",
+      ]
+    },
+    { id: "technical",
+      list: [
+        "Optimize Query Management",
+        "UI Development",
+        "Git Command",
+        "RESTful API Development",
+        "Unit & Feature Testing (Pest)",
+        "Clean & Reusable Code",
+        "Domain Driven Architecture",
+        "OOP Pattern or MVC Pattern",
+        "Graphic Design"
+      ]
+    },
+    { id: "interpersonal",
+      list: [
+        "Team-collaborative",
+        "Good time management",
+        "Critical thinker",
+        "Fast adapter",
+        "Problem-focused mindset",
+        "Positive vibes",
+      ]
+    },
+    { id: "interest",
+      list: [
+        "Web dev & tools",
+        "System & architecture",
+        "Database stuff",
+        "API & integrations",
+        "Debugging & problem solving",
+        "Learning new tech",
+      ]
+    },
 ]
 
 export default function Skill() {
@@ -84,15 +150,12 @@ export default function Skill() {
               }`}
             >
               <ul className="project-lists">
-                <li>
+                <div className="mb-3">
                   <b>{type.id.replace("-", " ").toUpperCase()} :</b>
-                </li>
-                <li>Can build a f*cking website</li>
-                <li>Has loads of ideas</li>
-                <li>Best problem solver... in the details</li>
-                <li>Can multi-task</li>
-                <li>Great music taste</li>
-                <li>Fully services</li>
+                </div>
+                {type.list && type.list.map((point, index) => (
+                <li className="mb-1" key={index}>{point}</li>
+                ))}
               </ul>
             </div>
           ))}

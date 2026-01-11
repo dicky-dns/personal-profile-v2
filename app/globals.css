@@ -789,6 +789,7 @@ a.text-about svg{
     font-size: 14px;
     position: static;
     border-radius: 10px;
+    min-height: 230px;
     position: relative;
 }
 .project-list-box.show {
@@ -1153,9 +1154,12 @@ a.text-about svg{
 /* End Project */
 
 /* Contact  */
-
+.contact-form{
+    margin: 50px auto 50px;
+    padding-top: 34px;
+}
 .contact-heading{
-    margin: 50px 0 35px;
+    margin: 0 0 35px;
     padding-left: 0;
     text-align: center;
 }

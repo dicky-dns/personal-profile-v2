@@ -58,7 +58,7 @@ export default function ContactForm() {
   }, [status]);
 
   return (
-    <div ref={wrapperRef} className="container my-5">
+    <div ref={wrapperRef} className="container contact-form" id="contact">
       <div className="row">
         <div className="contact-heading text-center">
           <Image
