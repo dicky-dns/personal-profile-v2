@@ -1042,7 +1042,7 @@ a.text-about svg{
     padding-top: 20px;
 }
 .project-section{
-    padding: 20px;
+    padding: 20px 16px;
     width: 100%;
     margin-bottom: 50px;
     position: relative;
@@ -1056,7 +1056,7 @@ a.text-about svg{
 }
 
 .projects .splide__slide {
-    padding: 0 10px;
+    padding: 0 12px;
 }
 .projects .splide__arrow {
     width: 4em;
@@ -1862,6 +1862,9 @@ a.text-about svg{
     }
      .contact-section{
         width: 80%;
+    }
+    .project-section{
+        padding: 20px;
     }
     .projects .splide__slide {
         padding: 0 5px;
