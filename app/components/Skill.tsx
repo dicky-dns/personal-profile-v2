@@ -104,7 +104,6 @@ export default function Skill() {
     <div className="page-wrapper">
       <div className="power-up">
 
-        {/* POWER SELECT */}
         <div className="power-up-selection">
           <div className="power-heading">
             <img src="/images/power-heading.gif" alt="Select your power-up" />
