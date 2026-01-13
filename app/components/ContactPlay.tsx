@@ -158,6 +158,9 @@ export default function ContactPlay() {
   return (
     <div className="play-area">
       <div className="play-details">
+        <div className="email-address">
+          Stay in touch
+        </div>
         <div className="play-icons">
           {[
             { img: "/images/linkedin.svg", alt: "LinkedIn" },
