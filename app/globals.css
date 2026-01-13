@@ -942,6 +942,7 @@ a.text-about svg{
 .github-button a.star-button{
     background-color: transparent;
     color: #000;
+    width: 69%;
     display: none;
 }
 
@@ -1829,9 +1830,6 @@ a.text-about svg{
         left: 50%;
         transform: perspective(1px) translateY(-150%) translateX(-50%);
     }
-    .github-button a.star-button{
-        display: block;
-    }
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1134px) {
@@ -2236,9 +2234,6 @@ a.text-about svg{
     .power-box:hover{
         border: 1px solid #000;
         border-radius:6px;
-    }
-    .github-button a.star-button{
-       width: 60%;
     }
     .contribution-left {
         width: 60%;
