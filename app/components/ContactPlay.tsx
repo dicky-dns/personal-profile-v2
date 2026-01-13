@@ -7,49 +7,101 @@ export default function ContactPlay() {
   const totalArms = 15;
   const arcStart = 330;
   const arcSpan = 240;
-  const armClassNames = [
-    "arm-one",
-    "arm-two",
-    "arm-three",
-    "arm-four",
-    "arm-five",
-    "arm-six",
-    "arm-seven",
-    "arm-eight",
-    "arm-nine",
-    "arm-ten",
-    "arm-eleven",
-    "arm-twelve",
-    "arm-thirteen",
-    "arm-fourteen",
-    "arm-fifteen",
-  ];
-
-    const imglassNames = [
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-0",
-    "image-23",
-    "image-24",
-    "image-25",
-    "image-26",
-    "image-27",
-    "image-28",
-    "image-29",
+  const arms = [
+    {
+      class: "arm-one",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-two",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-three",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-four",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-five",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-six",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-seven",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-eight",
+      imgClass: "image-0",
+      imgSrc: "/images/hand-1.png",
+    },
+    {
+      class: "arm-nine",
+      imgClass: "image-23",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-ten",
+      imgClass: "image-24",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-eleven",
+      imgClass: "image-25",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-twelve",
+      imgClass: "image-26",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-thirteen",
+      imgClass: "image-27",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-fourteen",
+      imgClass: "image-28",
+      imgSrc: "/images/hand-2.png",
+    },
+    {
+      class: "arm-fifteen",
+      imgClass: "image-29",
+      imgSrc: "/images/hand-2.png",
+    },
   ];
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth <= 991) return;
+    const { body } = document;
+    const previousOverflow = body.style.overflow;
+    const previousTouchAction = body.style.touchAction;
+    body.style.overflow = "hidden";
+    body.style.touchAction = "none";
 
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+    const mouse = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    };
+    const smoothing = 0.12;
+    const maxRotateZ = 13;
+    const maxRotateX = 13;
+    let rafId: number | null = null;
 
+    const animate = () => {
       armsRef.current.forEach((arm) => {
         if (!arm) return;
 
@@ -57,14 +109,22 @@ export default function ContactPlay() {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        const dx = mouseX - centerX;
-        const dy = mouseY - centerY;
+        const dx = mouse.x - centerX;
+        const dy = mouse.y - centerY;
 
         const distanceX = dx / window.innerWidth;
         const distanceY = dy / window.innerHeight;
 
-        const maxRotateZ = 13;
-        const maxRotateX = 13;
+        const targetZ = distanceX * maxRotateZ;
+        const targetX = -distanceY * maxRotateX;
+
+        const currentZ = parseFloat(arm.dataset.currentZ || "0");
+        const currentX = parseFloat(arm.dataset.currentX || "0");
+        const nextZ = currentZ + (targetZ - currentZ) * smoothing;
+        const nextX = currentX + (targetX - currentX) * smoothing;
+
+        arm.dataset.currentZ = nextZ.toString();
+        arm.dataset.currentX = nextX.toString();
 
         if (!arm.dataset.baseTransform) {
           const style = getComputedStyle(arm);
@@ -72,15 +132,27 @@ export default function ContactPlay() {
             style.transform === "none" ? "" : style.transform;
         }
 
-        const rotateZ = distanceX * maxRotateZ;
-        const rotateX = -distanceY * maxRotateX;
-
-        arm.style.transform = `${arm.dataset.baseTransform} rotateZ(${rotateZ}deg) rotateX(${rotateX}deg)`;
+        arm.style.transform = `${arm.dataset.baseTransform} rotateZ(${nextZ}deg) rotateX(${nextX}deg)`;
       });
+
+      rafId = window.requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth <= 991) return;
+
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
+    rafId = window.requestAnimationFrame(animate);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+      body.style.overflow = previousOverflow;
+      body.style.touchAction = previousTouchAction;
+    };
   }, []);
 
   return (
@@ -105,7 +177,7 @@ export default function ContactPlay() {
         </div>
 
         <div className="email-address">
-          Say hello <br />
+          or <br />
         </div>
 
         <div className="play-mail">
@@ -113,19 +185,19 @@ export default function ContactPlay() {
             href="mailto:dickydns1@gmail.com"
             className="button mailto-button"
           >
-            Contact
+            Say Hello
           </a>
         </div>
       </div>
 
       <div className="arms">
-        {Array.from({ length: totalArms }).map((_, i) => (
+        {arms.map((item, i) => (
           <div
             key={i}
             ref={(el) => {
               if (el) armsRef.current[i] = el;
             }}
-            className={`arm-size ${armClassNames[i]}`}
+            className={`arm-size ${item.class}`}
             style={
               {
                 "--arm-angle": `${arcStart + (arcSpan / (totalArms - 1)) * i}deg`,
@@ -133,8 +205,8 @@ export default function ContactPlay() {
             }
           >
             <img
-              src={`/images/hand${i + 1}.svg`}
-              className={imglassNames[i]}
+              src={item.imgSrc}
+              className={item.imgClass}
               alt={`Hand ${i + 1}`}
               loading="lazy"
             />

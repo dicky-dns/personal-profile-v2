@@ -80,10 +80,10 @@ export default function Project() {
 
           <div className="splide__arrows">
             <button className="splide__arrow splide__arrow--prev">
-              <img src="/images/arrow-left.svg" alt="Previous" />
+              <img src="/images/arrow-left.png" alt="Previous" />
             </button>
             <button className="splide__arrow splide__arrow--next">
-              <img src="/images/arrow-right.svg" alt="Next" />
+              <img src="/images/arrow-right.png" alt="Next" />
             </button>
           </div>
         </div>

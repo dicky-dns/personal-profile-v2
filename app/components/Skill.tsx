@@ -12,18 +12,9 @@ const powerItems = [
   { id: "interest", label: "Interest", icon: "/images/db.svg" },
 ];
 
-const characters = [
-  { id: "default", img: "/images/default.png" },
-  { id: "dev-stack", img: "/images/uses2.png" },
-  { id: "database", img: "/images/database.png" },
-  { id: "uses", img: "/images/uses.png" },
-  { id: "technical", img: "/images/technical.png" },
-  { id: "interpersonal", img: "/images/interpersonal.png" },
-  { id: "interest", img: "/images/interest.png" },
-];
-
 const project_types = [
     { id: "default",
+      img: "/images/default.png",
       list: [
         "3+ years web dev experience",
         "Clean & scalable builds",
@@ -35,6 +26,7 @@ const project_types = [
       ]
     },
     { id: "dev-stack",
+      img: "/images/uses2.png",
       list: [
         "HTML, CSS",
         "Tailwind CSS, Bootstrap",
@@ -44,6 +36,7 @@ const project_types = [
       ]
     },
     { id: "database",
+      img: "/images/database.png",
       list: [
         "MariaDB / MySQL",
         "PostgreSQL",
@@ -51,6 +44,7 @@ const project_types = [
       ]
     },
     { id: "uses",
+      img: "/images/uses.png",
       list: [
         "Linux (Ubuntu) & Windows",
         "VS Code as code editor",
@@ -63,6 +57,7 @@ const project_types = [
       ]
     },
     { id: "technical",
+      img: "/images/technical.png",
       list: [
         "Optimize Query Management",
         "UI Development",
@@ -76,6 +71,7 @@ const project_types = [
       ]
     },
     { id: "interpersonal",
+      img: "/images/interpersonal.png",
       list: [
         "Team-collaborative",
         "Good time management",
@@ -86,6 +82,7 @@ const project_types = [
       ]
     },
     { id: "interest",
+      img: "/images/interest.png",
       list: [
         "Web dev & tools",
         "System & architecture",
@@ -128,7 +125,7 @@ export default function Skill() {
         </div>
 
         <div className="character-select">
-          {characters.map((char) => (
+          {project_types.map((char) => (
             <img
               key={char.id}
               src={char.img}
