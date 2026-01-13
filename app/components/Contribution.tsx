@@ -20,6 +20,7 @@ export default function Contribution() {
   const total = calendar?.totalContributions ?? 0;
   const publicRepos = data?.publicRepos ?? 0;
   const totalStars = data?.totalStars ?? 0;
+  const topLanguages = data?.topLanguages ?? [];
 
   const weeks = useMemo<Week[]>(() => {
     if (!calendar?.weeks) return [];
@@ -180,18 +181,31 @@ export default function Contribution() {
                             <div className="github-username">{user?.login || ""}</div>
                         </div>
                         <div className="github-activity">
-                            <span>Followers {user?.followers?.totalCount ?? 0}</span>
-                            <span>Following {user?.following?.totalCount ?? 0}</span>
+                            <span>{user?.followers?.totalCount ?? 0} Followers</span>
+                            <span>{user?.following?.totalCount ?? 0} Following</span>
                         </div>  
+                        <div className="github-location">
+                          {user?.location || "—"}
+                        </div>
+                
                         <div className="github-repo-activity">
-                            {publicRepos} public repositories from GitHub
-                            <a className="material-icons" target="_blank" href="https://github.com/dicky-dns">open_in_new</a>
+                            <span className="github-desktop">
+                              {publicRepos} public repositories from GitHub 
+                              <a className="material-icons" target="_blank" href="https://github.com/dicky-dns">open_in_new</a>
+                            </span>
+                            <span className="github-mobile">
+                              Total {publicRepos} public repositories with top languages: {topLanguages ? topLanguages.join(", ") : ""}.
+                            </span>
                         </div>  
                     </div>
                     <div className="github-button">
                         <a className="view-button" target="_blank" href="https://github.com/dicky-dns">
                             <img src="/images/octocat.svg" />
                             View on Github
+                        </a>
+                        <a className="star-button" target="_blank" href="https://github.com/dicky-dns?tab=stars">
+                           <img src="/images/star.svg" />
+                            Star
                         </a>
                     </div>
                 </div>

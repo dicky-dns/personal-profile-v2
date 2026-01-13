@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "scrollTarget";
 
 export default function Navbar(){
     const pathname = usePathname();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const scrollToSection = (id: string | null) => (event: React.MouseEvent) => {
       if (pathname !== "/") {
         if (id) {
@@ -63,7 +65,12 @@ export default function Navbar(){
                                 </Link>
                               ))}
                         </div>
-                        <Link href="#" className="button-hamburger"></Link>
+                        <button
+                          type="button"
+                          className="button-hamburger"
+                          aria-label="Open menu"
+                          onClick={() => setIsMenuOpen(true)}
+                        />
                     </div>
                 </div>
 
@@ -78,20 +85,33 @@ export default function Navbar(){
                 <div className="col-4">
                     <div className="d-flex align-items-center justify-content-end h-100">
                         <Link href="/contact" className="button-dark-play">{"Let's Play!"}</Link>
-                        <Link href="#" className="button-hamburger"></Link>
+                        <button
+                          type="button"
+                          className="button-hamburger"
+                          aria-label="Open menu"
+                          onClick={() => setIsMenuOpen(true)}
+                        />
                     </div>
                 </div>
               </div>
-              <div className="nav-menu-mobile">
-                <Link href="#" className="button-close-mobile">
+              <div className={`nav-menu-mobile ${isMenuOpen ? "show" : ""}`}>
+                <button
+                  type="button"
+                  className="button-close-mobile"
+                  aria-label="Close menu"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   <Image src="images/close-white.svg" alt="Close Menu" fill/>
-                </Link>
+                </button>
                 
                 <div className="navbar-menu-mobile">
                     <Link
                       href="/"
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={scrollToSection(null)}
+                      onClick={(event) => {
+                        setIsMenuOpen(false);
+                        scrollToSection(null)(event);
+                      }}
                     >
                       <span className="text-menu">Home</span>
                       <span className="logo-menu">
@@ -101,7 +121,10 @@ export default function Navbar(){
                     <Link
                       href={isHome ? "/#about" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={scrollToSection("about")}
+                      onClick={(event) => {
+                        setIsMenuOpen(false);
+                        scrollToSection("about")(event);
+                      }}
                     >
                       <span className="text-menu">About</span>
                       <span className="logo-menu">
@@ -111,7 +134,10 @@ export default function Navbar(){
                     <Link
                       href={isHome ? "/#project" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={scrollToSection("project")}
+                      onClick={(event) => {
+                        setIsMenuOpen(false);
+                        scrollToSection("project")(event);
+                      }}
                     >
                       <span className="text-menu">Project</span>
                       <span className="logo-menu">
@@ -121,7 +147,10 @@ export default function Navbar(){
                     <Link
                       href={isHome ? "/#contact" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={scrollToSection("contact")}
+                      onClick={(event) => {
+                        setIsMenuOpen(false);
+                        scrollToSection("contact")(event);
+                      }}
                     >
                       <span className="text-menu">Contact</span>
                       <span className="logo-menu">

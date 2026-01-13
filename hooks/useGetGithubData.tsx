@@ -9,6 +9,7 @@ const QUERY = `
     user(login: $username) {
       login
       avatarUrl
+      location
       followers {
         totalCount
       }
@@ -41,6 +42,9 @@ const REPOS_QUERY = `
         }
         nodes {
           stargazerCount
+          primaryLanguage {
+            name
+          }
         }
       }
     }
@@ -51,6 +55,7 @@ type GithubResponse = {
   user: {
     login: string;
     avatarUrl: string;
+    location?: string | null;
     followers: { totalCount: number };
     following: { totalCount: number };
     contributionsCollection: {
@@ -67,6 +72,7 @@ type GithubResponse = {
   } | null;
   publicRepos?: number;
   totalStars?: number;
+  topLanguages?: string[];
 };
 
 type GithubState = {
@@ -125,6 +131,8 @@ export function useGetGithubData(): GithubState {
           throw new Error(message);
         }
 
+        const languageCounts: Record<string, number> = {};
+
         const fetchRepos = async (
           cursor: string | null,
           totals: { publicRepos: number; totalStars: number }
@@ -159,6 +167,10 @@ export function useGetGithubData(): GithubState {
           let totalStars = totals.totalStars;
           for (const repo of nodes) {
             totalStars += Number(repo?.stargazerCount ?? 0);
+            const language = repo?.primaryLanguage?.name;
+            if (language) {
+              languageCounts[language] = (languageCounts[language] ?? 0) + 1;
+            }
           }
 
           if (repos?.pageInfo?.hasNextPage) {
@@ -175,6 +187,10 @@ export function useGetGithubData(): GithubState {
           publicRepos: 0,
           totalStars: 0,
         });
+        const topLanguages = Object.entries(languageCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(([name]) => name);
 
         if (!cancelled) {
           setState({
@@ -182,6 +198,7 @@ export function useGetGithubData(): GithubState {
               ...(json.data as GithubResponse),
               publicRepos,
               totalStars,
+              topLanguages,
             },
             error: null,
             isLoading: false,

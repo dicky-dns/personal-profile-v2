@@ -1,6 +1,7 @@
 "use client";
 
 import { List } from "lucide-react";
+import { title } from "process";
 import { useState } from "react";
 
 const powerItems = [
@@ -8,13 +9,14 @@ const powerItems = [
   { id: "database", label: "Database", icon: "/images/security.svg" },
   { id: "uses", label: "Uses", icon: "/images/tools.svg" },
   { id: "technical", label: "Technical", icon: "/images/testing.svg" },
-  { id: "interpersonal", label: "Interpersonal", icon: "/images/design.svg" },
+  { id: "self", label: "Self", icon: "/images/design.svg" },
   { id: "interest", label: "Interest", icon: "/images/db.svg" },
 ];
 
 const project_types = [
     { id: "default",
       img: "/images/default.png",
+      title: "Introduce My Profile",
       list: [
         "3+ years web dev experience",
         "Clean & scalable builds",
@@ -27,6 +29,7 @@ const project_types = [
     },
     { id: "dev-stack",
       img: "/images/uses2.png",
+      title: "Dev Stack",
       list: [
         "HTML, CSS",
         "Tailwind CSS, Bootstrap",
@@ -37,6 +40,7 @@ const project_types = [
     },
     { id: "database",
       img: "/images/database.png",
+      title: "Database Tech",
       list: [
         "MariaDB / MySQL",
         "PostgreSQL",
@@ -45,6 +49,7 @@ const project_types = [
     },
     { id: "uses",
       img: "/images/uses.png",
+      title: "Uses Tools & Utilities",
       list: [
         "Linux (Ubuntu) & Windows",
         "VS Code as code editor",
@@ -58,6 +63,7 @@ const project_types = [
     },
     { id: "technical",
       img: "/images/technical.png",
+      title: "Technical Skills",
       list: [
         "Optimize Query Management",
         "UI Development",
@@ -70,8 +76,9 @@ const project_types = [
         "Graphic Design"
       ]
     },
-    { id: "interpersonal",
+    { id: "self",
       img: "/images/interpersonal.png",
+      title: "Interpersonal Skills",
       list: [
         "Team-collaborative",
         "Good time management",
@@ -83,6 +90,7 @@ const project_types = [
     },
     { id: "interest",
       img: "/images/interest.png",
+      title: "Areas of Interest",
       list: [
         "Web dev & tools",
         "System & architecture",
@@ -147,7 +155,7 @@ export default function Skill() {
             >
               <ul className="project-lists">
                 <div className="mb-3">
-                  <b>{type.id.replace("-", " ").toUpperCase()} :</b>
+                  <b>{type.title.toUpperCase()} :</b>
                 </div>
                 {type.list && type.list.map((point, index) => (
                 <li className="mb-1" key={index}>{point}</li>

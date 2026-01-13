@@ -175,6 +175,13 @@ img {
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+.button-close-mobile:focus,
+.button-close-mobile:focus-visible {
+    outline: none;
 }
 .button-close-mobile img {
     width: 100%;
@@ -269,6 +276,13 @@ img {
     width: 38px;
     height: 38px;
     position: relative;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+.button-hamburger:focus,
+.button-hamburger:focus-visible {
+    outline: none;
 }
 
 .button-dark-play:hover {
@@ -876,6 +890,12 @@ a.text-about svg{
     justify-content: center;
     gap: 10px;
 }
+.github-location {
+    display: none;
+    font-size: 12px;
+    margin-top: 2px;
+    text-align: center;
+}
 
 .github-repo-activity{
     text-align: center;
@@ -889,6 +909,12 @@ a.text-about svg{
     text-decoration: none;
     position: relative;
     bottom: -2px;
+}
+.github-repo-activity .github-mobile{
+    display: none;
+}
+.github-repo-activity .github-desktop{
+    display: block;
 }
 .github-button{
     bottom: 0;
@@ -913,12 +939,21 @@ a.text-about svg{
     text-align: center;
 }
 
+.github-button a.star-button{
+    background-color: transparent;
+    color: #000;
+    display: none;
+}
+
 .github-button a.star-button span{
     font-size: 14px;
 }
 .github-button a img{
     filter: invert(1);
     width: 20px;
+}
+.github-button a.star-button img{
+    filter: none;
 }
 .contribution-body{
     padding: 10px 10px;
@@ -1000,6 +1035,31 @@ a.text-about svg{
 .contribution-footer .rounded{
     width: 12px; 
     height: 12px; 
+}
+.contribution-mobile-only {
+    display: none;
+    margin-top: 12px;
+    border-top: 1px dashed #000;
+    padding-top: 10px;
+}
+.contribution-mobile-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+.contribution-mobile-stat {
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.contribution-mobile-stat strong {
+    display: block;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 2px;
 }
 .contribution-loading{
     color: #444444;
@@ -2312,6 +2372,9 @@ a.text-about svg{
     .contribution-section {
         flex-direction: column-reverse;
     }
+    .contribution-heading {
+        margin-bottom: 30px;
+    }
     .contribution-left {
         width: 100%;
     }
@@ -2324,25 +2387,64 @@ a.text-about svg{
     }
     .github-account {
         width: 100%;
-        padding: 15px 13px;
+        padding: 0;
+        border: 0;
+        display: flex;
+        
+    }
+    .github-account:hover {
+        outline: 0;
+        border: 0;
+    }
+    .github-heading {
+        justify-content: start;
+        width: 100%;
+        width: 100px;
+    }
+    .github-content {
+        text-align: left;
+    }
+    .github-username {
+        font-size: 18px;
+        margin: 1px 0 4px;
+    }
+    .github-repo-activity {
+        margin-top: 20px;
+        left: 0;
+        position: absolute;
+        text-align: left;
+        line-height: 1.5;
+    }
+    .github-repo-activity .github-mobile {
+        display: block;
+    }
+    .github-repo-activity .github-desktop {
+        display: none;
+    }
+    .github-button {
+        position: absolute;
+        gap: 10px;
+    }
+    .github-button a.star-button{
+        display: block;
     }
     .github-activity {
         font-size: 13px;
         gap: 9px;
+        justify-content: start;
+        margin-bottom: 4px;
     }
-    .wakatime-activity {
-        font-size: 14px;
-        margin-bottom: 7px;
+    .github-location {
+        display: block;
+        text-align: left;
+        font-size: 13px;
     }
+
     .github-heading img {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
     }
-    .github-button {
-        position: relative;
-        margin-top: 10px;
-        font-size: 14px;
-    }
+
     .github-button a {
         padding: 10px 8px;
     }

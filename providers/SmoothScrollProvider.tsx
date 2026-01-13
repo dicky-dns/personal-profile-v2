@@ -8,7 +8,7 @@ export const SmoothScrollContext = createContext({
 
 interface SmoothScrollProviderProps {
   children: React.ReactNode
-  options?: any
+  options?: Record<string, unknown>
 }
 
 export const SmoothScrollProvider = ({
