@@ -114,9 +114,6 @@ export default function Navbar(){
                       }}
                     >
                       <span className="text-menu">Home</span>
-                      <span className="logo-menu">
-                          <Image width={125} height={120} alt="Menu" src="/images/menu-home.png" />
-                      </span>
                     </Link>
                     <Link
                       href={isHome ? "/#about" : "/"}
@@ -127,9 +124,6 @@ export default function Navbar(){
                       }}
                     >
                       <span className="text-menu">About</span>
-                      <span className="logo-menu">
-                        <Image width={50} height={50} alt="Menu" src="/images/menu-about.png" />
-                      </span>
                     </Link>
                     <Link
                       href={isHome ? "/#project" : "/"}
@@ -140,9 +134,6 @@ export default function Navbar(){
                       }}
                     >
                       <span className="text-menu">Project</span>
-                      <span className="logo-menu">
-                        <Image width={50} height={50} alt="Menu" src="/images/menu-project.png" />
-                      </span>
                     </Link>
                     <Link
                       href={isHome ? "/#contact" : "/"}
@@ -153,9 +144,6 @@ export default function Navbar(){
                       }}
                     >
                       <span className="text-menu">Contact</span>
-                      <span className="logo-menu">
-                        <Image width={40} height={40} alt="Menu" src="/images/menu-contact.png" />
-                      </span>
                     </Link>
                     <div className="navbar-menu-mobile-footer">
                         <Link href="{{ route('contact" className="button-dark-play d-block">{"Let's Play!"}</Link>

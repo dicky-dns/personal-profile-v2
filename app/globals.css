@@ -1815,6 +1815,11 @@ a.text-about svg{
 }
 
 @media only screen and (max-width: 1134px) {
+    .navbar-menu a:hover .text-menu,
+    .navbar-menu-mobile a:hover .text-menu {
+        font-weight: 700;
+        opacity: 1;
+    }
     .hero .hero-image-desktop,
     .hero .hero-image-mobile {
         position: relative;
