@@ -1453,9 +1453,9 @@ a.text-about svg{
 .play-area .mailto-button {
     color: #000;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 2px solid #000;
     display: inline-block;
-    padding: 9px 20px;
+    padding: 9px 25px;
     border-radius: 8px;
     text-decoration: none;
 }
@@ -2268,7 +2268,7 @@ a.text-about svg{
     .project .project-window:hover,
     .power-box,
     .power-box:hover{
-        border: 1px solid #000;
+        border: 2px solid #000;
         border-radius:6px;
     }
     .contribution-left {
@@ -2363,6 +2363,16 @@ a.text-about svg{
     .power-up {
         grid-row-gap: 0;
     }
+    .play-area {
+        display: flex;
+        height: calc(80% - 166px);
+        align-items: center;
+        margin: 0 auto;
+        padding-top: 0;
+    }
+    .play-area .arms {
+        display: none;
+    }
     .arm-one {
         top: 50px !important;
     }
@@ -2410,7 +2420,7 @@ a.text-about svg{
         flex-direction: column-reverse;
         padding: 20px 7px;
         margin: 10px 14px 60px;
-        border: 1px solid #000;
+        border: 2px solid #000;
         border-radius: 6px;
     }
     .contribution-body  {
