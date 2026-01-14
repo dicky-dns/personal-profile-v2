@@ -10,15 +10,15 @@ const greetings = [
   "Hello!",
   "Hola!",
   "Bonjour!",
-  "Ciao!",
+  "Nǐ hǎo!",
   "안녕하세요!",
   "Olá!",
-  "Nǐ hǎo!",
+  "Xin chào!",
   "こんにちは!",
   "Привет!",
   "!مرحبا",
   "नमस्ते!",
-  "Xin chào!",
+  "Ciao!",
 ];
 
 export default function Navbar(){
