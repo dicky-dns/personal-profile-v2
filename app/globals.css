@@ -1445,6 +1445,7 @@ a.text-about svg{
 .play-area .play-icons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 .play-area .play-mail {
@@ -1750,7 +1751,7 @@ a.text-about svg{
 }
 .image-29 {
 
-    transform: rotateX(180deg) rotateY(180deg) rotate(0);
+        transform: rotateX(180deg) rotateY(180deg) rotate(0);
 }
 .arm-size {
     transform-origin: center center;
@@ -1762,12 +1763,17 @@ a.text-about svg{
 
 /* end play page */
 
-@media screen and (max-width: 991px) {
-    .contact-details {
-        width: 80%;
-        max-width: 80%;
-    }
+/* Bookmarks */
+.bookmark-heading{
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0 14px;
 }
+
+.bookmark-heading img{
+    max-width: 550px;
+}
+/* End Bookmarks */
 
 @media only screen and (max-width: 1199px) {
     .contact-side{
@@ -1904,6 +1910,10 @@ a.text-about svg{
 }
 
 @media screen and (max-width: 991px) {
+    .contact-details {
+        width: 80%;
+        max-width: 80%;
+    }
     .text-about, .text-about a {
         line-height: 1.5;
     }
@@ -2299,6 +2309,9 @@ a.text-about svg{
 }
 
 @media only screen and (max-width: 575px) {
+    .navbar-header {
+        padding: .8rem 20px;
+    } 
     .contact-section{
         padding: 0 14px;
     }
@@ -2309,6 +2322,9 @@ a.text-about svg{
 
     .list-form .form-input {
         margin-bottom: 0;
+    }
+    .bookmark-section{
+        padding: 0 14px;
     }
 }
 
@@ -2321,14 +2337,16 @@ a.text-about svg{
 }
 
 @media screen and (max-width: 549px) {
-    .navbar-header {
-        padding: .8rem 20px;
-    } 
     .hero .hero-image{
         margin-top: -100px;
     }
     .pay-to-play{
         width: 60%;        ;
+    }
+    .experience-box:hover{
+        outline: 0;
+        outline-offset: 0;
+        border-radius: 0;
     }
     .coin {
         width: 50px;
@@ -2365,7 +2383,7 @@ a.text-about svg{
     }
     .play-area {
         display: flex;
-        height: calc(80% - 166px);
+        height: calc(100% - 330px);
         align-items: center;
         margin: 0 auto;
         padding-top: 0;

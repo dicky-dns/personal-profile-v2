@@ -137,7 +137,7 @@ export default function Navbar(){
                         scrollToSection(null)(event);
                       }}
                     >
-                      <span className="text-menu">Home</span>
+                      <b className="text-menu">Home</b>
                     </Link>
                     <Link
                       href={isHome ? "/#about" : "/"}
@@ -147,7 +147,7 @@ export default function Navbar(){
                         scrollToSection("about")(event);
                       }}
                     >
-                      <span className="text-menu">About</span>
+                      <b className="text-menu">About</b>
                     </Link>
                     <Link
                       href={isHome ? "/#project" : "/"}
@@ -157,7 +157,7 @@ export default function Navbar(){
                         scrollToSection("project")(event);
                       }}
                     >
-                      <span className="text-menu">Project</span>
+                      <b className="text-menu">Project</b>
                     </Link>
                     <Link
                       href={isHome ? "/#contact" : "/"}
@@ -167,7 +167,7 @@ export default function Navbar(){
                         scrollToSection("contact")(event);
                       }}
                     >
-                      <span className="text-menu">Contact</span>
+                      <b className="text-menu">Contact</b>
                     </Link>
                     <div className="navbar-menu-mobile-footer">
                         <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="button-dark-play greeting-button d-block">{greeting}</Link>

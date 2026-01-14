@@ -1,5 +1,7 @@
 "use client";
 
+import { url } from "inspector";
+import Link from "next/link";
 import { useEffect, useRef, type CSSProperties } from "react";
 
 export default function ContactPlay() {
@@ -163,19 +165,22 @@ export default function ContactPlay() {
         </div>
         <div className="play-icons">
           {[
-            { img: "/images/in.svg", alt: "LinkedIn" },
-            { img: "/images/ig.svg", alt: "Instagram" },
-            { img: "/images/wa.svg", alt: "Whatsapp" },
-            { img: "/images/gh.svg", alt: "Github" },
+            { img: "/images/in.svg", alt: "LinkedIn", url: "https://www.linkedin.com/in/dickydns/"},
+            { img: "/images/wa.svg", alt: "Whatsapp", url: "https://wa.me/62895325927272" },
+            { img: "/images/ig.svg", alt: "Instagram", url: "https://www.instagram.com/dickydns/" },
+            { img: "/images/dc.svg", alt: "Discord", url: "https://discord.gg/jUTUrR7c" },
+            { img: "/images/gh.svg", alt: "Github", url: "https://github.com/dicky-dns" },
           ].map((item) => (
-            <img
-              key={item.alt}
-              src={item.img}
-              alt={item.alt}
-              title={item.alt}
-              className="icon"
-              loading="lazy"
-            />
+            <Link href={item.url} key={item.alt} target="_blank"> 
+              <img
+                key={item.alt}
+                src={item.img}
+                alt={item.alt}
+                title={item.alt}
+                className="icon"
+                loading="lazy"
+              />
+            </Link>
           ))}
         </div>
 
