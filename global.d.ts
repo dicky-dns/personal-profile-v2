@@ -6,3 +6,4 @@ declare module "*.svg";
 declare module "*.gif";
 declare module "*.scss";
 declare module "*.sass";
+declare module "nodemailer";
