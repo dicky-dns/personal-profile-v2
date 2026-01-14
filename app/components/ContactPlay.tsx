@@ -159,14 +159,14 @@ export default function ContactPlay() {
     <div className="play-area">
       <div className="play-details">
         <div className="email-address">
-          Stay in touch
+          Keep in touch
         </div>
         <div className="play-icons">
           {[
-            { img: "/images/linkedin.svg", alt: "LinkedIn" },
-            { img: "/images/instagram.svg", alt: "Instagram" },
-            { img: "/images/whatsapp.svg", alt: "Whatsapp" },
-            { img: "/images/github.svg", alt: "Github" },
+            { img: "/images/in.svg", alt: "LinkedIn" },
+            { img: "/images/ig.svg", alt: "Instagram" },
+            { img: "/images/wa.svg", alt: "Whatsapp" },
+            { img: "/images/gh.svg", alt: "Github" },
           ].map((item) => (
             <img
               key={item.alt}

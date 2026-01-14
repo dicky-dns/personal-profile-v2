@@ -2,14 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "scrollTarget";
+const greetings = [
+  "Hello!",
+  "Hola!",
+  "Bonjour!",
+  "Ciao!",
+  "안녕하세요!",
+  "Olá!",
+  "Nǐ hǎo!",
+  "こんにちは!",
+  "Привет!",
+  "!مرحبا",
+  "नमस्ते!",
+  "Xin chào!",
+];
 
 export default function Navbar(){
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [greetingIndex, setGreetingIndex] = useState(0);
     const scrollToSection = (id: string | null) => (event: React.MouseEvent) => {
       if (pathname !== "/") {
         if (id) {
@@ -34,6 +49,15 @@ export default function Navbar(){
     };
 
     const isHome = pathname === "/";
+    const greeting = greetings[greetingIndex] ?? "Hello";
+
+    useEffect(() => {
+      const interval = window.setInterval(() => {
+        setGreetingIndex((prev) => (prev + 1) % greetings.length);
+      }, 2900);
+
+      return () => window.clearInterval(interval);
+    }, []);
 
     return ( 
         <div className="container">
@@ -84,7 +108,7 @@ export default function Navbar(){
 
                 <div className="col-4">
                     <div className="d-flex align-items-center justify-content-end h-100">
-                        <Link href="/contact" className="button-dark-play">{"Let's Play!"}</Link>
+                        <Link href="/contact" className="button-dark-play greeting-button">{greeting}</Link>
                         <button
                           type="button"
                           className="button-hamburger"
@@ -146,7 +170,7 @@ export default function Navbar(){
                       <span className="text-menu">Contact</span>
                     </Link>
                     <div className="navbar-menu-mobile-footer">
-                        <Link href="{{ route('contact" className="button-dark-play d-block">{"Let's Play!"}</Link>
+                        <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="button-dark-play greeting-button d-block">{greeting}</Link>
                     </div>
                 </div>
               </div>

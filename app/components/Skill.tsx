@@ -169,7 +169,7 @@ export default function Skill() {
               Need help for something?
             </div>
             <a href="/contact" className="button-dark-play">
-              Let&apos;s Play!
+              Let&apos;s Talk!
             </a>
           </div>
         </div>

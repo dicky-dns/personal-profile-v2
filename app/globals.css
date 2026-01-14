@@ -267,6 +267,10 @@ img {
     text-decoration: none;
     animation: shakeWithPause 3s ease-in-out infinite;
 }
+.greeting-button{
+    min-width: 120px;
+    text-align: center;
+}
 
 .button-hamburger{
     display: none;
@@ -1120,17 +1124,20 @@ a.text-about svg{
 .projects .splide__list {
     margin-top: 24px;
     margin-bottom: 24px;
+    align-items: stretch;
 }
 
 .projects .splide__slide {
     padding: 0 12px;
+    display: flex;
 }
 .projects .splide__arrow {
     width: 4em;
     height: 4rem;
     background-color: transparent;
     cursor: url(/images/cpointer.png) 4 4, pointer !important;
-    outline: none       ;
+    outline: none;
+    opacity: 1 !important;
 }
 .projects .splide__arrows{
     position: relative;
@@ -1140,13 +1147,14 @@ a.text-about svg{
 }
 .projects .splide__pagination__page.is-active{
     transform: scale(1);
-    background-color: #414141;
+    background-color: #646464;
 }
 .projects .splide__pagination {
     bottom: -25px;
 }
 .projects .splide__pagination__page {
     background-color: #000;
+    opacity: 1;
     cursor: url(/images/cpointer.png) 4 4, pointer !important;
 }
 
@@ -1160,12 +1168,25 @@ a.text-about svg{
   box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 0.39);
   overflow: hidden;
   user-select: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .project-window:hover{
-    outline: black solid 4px;
-    outline-offset: -5px;
-    border-radius: 5px;
     cursor: url(/images/eye.png) 20 20, pointer !important;
+}
+.project-window::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 4px solid #000;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+}
+.project-window:hover::after {
+    opacity: 1;
 }
 .project-window .project-window-top {
   width: 100%;
@@ -1211,6 +1232,7 @@ a.text-about svg{
     height: 300px;
     display: flex;
     justify-content: end;
+    margin-top: auto;
 }
 .project-window .project-image img {
     height: 100%;
@@ -1968,13 +1990,17 @@ a.text-about svg{
         width: 80%;
     }
     .project-section{
-        padding: 20px 20px 0;
+        padding: 20px 20px 14px;
     }
     .projects .splide__slide {
         padding: 0 5px;
     }
+    .projects .splide__arrows {
+        bottom: -32px;
+    }
     .project-window {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
     .project-window .project-image {
         height: auto;
@@ -2325,8 +2351,14 @@ a.text-about svg{
     .power-heading{
         width: 85%;
     }
+    .project-heading img{
+        margin-bottom: 18px;
+    }
     .project-list-box{
         margin-top: 3px;
+    }
+    .project-window:hover::after {
+        opacity: 0;
     }
     .power-up {
         grid-row-gap: 0;
@@ -2376,19 +2408,32 @@ a.text-about svg{
     }
     .contribution-section {
         flex-direction: column-reverse;
+        padding: 20px 7px;
+        margin: 10px 14px 60px;
+        border: 1px solid #000;
+        border-radius: 6px;
+    }
+    .contribution-body  {
+        border: 0;
+        border-radius: 5px;
+        min-height: 193px;
+        padding: 15px 13px;
+        position: relative;
+        background-color: #e4e4e4;
+    }
+    .contribution-body:hover {
+        outline: 0;
+        border: 0;
     }
     .contribution-heading {
-        margin-bottom: 30px;
+        margin-bottom: 33px;
     }
     .contribution-left {
         width: 100%;
     }
     .contribution-right {
         width: 100%; 
-        margin-bottom: 20px;
-    }
-    .contribution-body {
-        padding: 15px 13px;
+        margin-bottom: 24px;
     }
     .github-account {
         width: 100%;
@@ -2410,8 +2455,8 @@ a.text-about svg{
         text-align: left;
     }
     .github-username {
-        font-size: 18px;
-        margin: 1px 0 4px;
+        font-size: 19px;
+        margin: 1px 0 3px;
     }
     .github-repo-activity {
         margin-top: 20px;
@@ -2422,6 +2467,7 @@ a.text-about svg{
     }
     .github-repo-activity .github-mobile {
         display: block;
+        font-size: 14px;
     }
     .github-repo-activity .github-desktop {
         display: none;
@@ -2429,12 +2475,13 @@ a.text-about svg{
     .github-button {
         position: absolute;
         gap: 10px;
+        bottom: -5px;
     }
     .github-button a.star-button{
         display: block;
     }
     .github-activity {
-        font-size: 13px;
+        font-size: 14px;
         gap: 9px;
         justify-content: start;
         margin-bottom: 4px;
@@ -2442,7 +2489,7 @@ a.text-about svg{
     .github-location {
         display: block;
         text-align: left;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .github-heading img {
