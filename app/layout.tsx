@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "@splidejs/splide/dist/css/splide.min.css";
 import "material-icons/iconfont/material-icons.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import RightClickWarning from "./components/RightClickWarning";
+
+config.autoAddCss = false;
 
 
 export const metadata: Metadata = {

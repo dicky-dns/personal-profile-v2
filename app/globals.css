@@ -1773,6 +1773,63 @@ a.text-about svg{
 .bookmark-heading img{
     max-width: 550px;
 }
+.bookmark-tagline{
+    font-size: 16px;
+    color: #2b2b2b;
+    padding: 0 14px;
+    margin-bottom: 25px;
+}
+.bookmark-content{
+    padding: 0 14px 20px;
+}
+.bookmark-card{
+    border: 2px solid #000;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 0.39);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 140px;
+    margin-bottom: 25px;
+}
+.bookmark-card-title{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--font-rubik);
+    margin-bottom: 8px;
+}
+.bookmark-card-description{
+    font-size: 14px;
+    color: #2b2b2b;
+    margin-bottom: 12px;
+}
+.bookmark-card-links{
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.bookmark-card-link{
+    border-radius: 17px;
+    padding: 4px 0px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    overflow: hidden;
+}
+.bookmark-card-link-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.bookmark-card-link:hover{
+    color: #515151;
+}
 /* End Bookmarks */
 
 @media only screen and (max-width: 1199px) {
