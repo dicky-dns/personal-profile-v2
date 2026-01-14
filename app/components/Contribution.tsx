@@ -21,6 +21,20 @@ export default function Contribution() {
   const publicRepos = data?.publicRepos ?? 0;
   const totalStars = data?.totalStars ?? 0;
   const topLanguages = data?.topLanguages ?? [];
+  const months = data?.months ?? [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   const weeks = useMemo<Week[]>(() => {
     if (!calendar?.weeks) return [];
@@ -110,13 +124,11 @@ export default function Contribution() {
                 <div className="contribute-outline">
 
                     <div className="contribute-months">
-                    {["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map(
-                        (m) => (
-                        <div key={m} className="contribute-month" style={{ width: 16 }}>
-                            {m}
-                        </div>
-                        )
-                    )}
+                    {months.map((monthLabel, index) => (
+                      <div key={`${monthLabel}-${index}`} className="contribute-month" style={{ width: 16 }}>
+                        {monthLabel}
+                      </div>
+                    ))}
                     </div>
 
                     <div className="contribute-boxes">
@@ -129,7 +141,7 @@ export default function Contribution() {
 
                     <div className="contribute-box">
                         {weeks.map((week, wIdx) => (
-                        <div key={wIdx} className="d-flex flex-column me-1">
+                        <div key={wIdx} className="d-flex flex-column contribute-column">
                             {week.contributionDays.map((day, dIdx) => (
                             <div
                                 key={dIdx}

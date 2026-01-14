@@ -979,6 +979,9 @@ a.text-about svg{
     gap: 2px;
     width: 100%;
 }
+.contribute-box .contribute-column{
+    margin-right: 3.99px;
+}
 .contribute-rounded{
     aspect-ratio: 1 / 1;
     width: 12.9px;
@@ -1007,6 +1010,7 @@ a.text-about svg{
 .contribute-boxes{
     display: flex;
     justify-content: center;
+    width: fit-content;
 }
 .contribute-months{
     display: flex;

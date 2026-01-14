@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { format, subMonths } from "date-fns";
 
 const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
 
@@ -73,6 +74,7 @@ type GithubResponse = {
   publicRepos?: number;
   totalStars?: number;
   topLanguages?: string[];
+  months?: string[];
 };
 
 type GithubState = {
@@ -191,6 +193,9 @@ export function useGetGithubData(): GithubState {
           .sort((a, b) => b[1] - a[1])
           .slice(0, 3)
           .map(([name]) => name);
+        const months = Array.from({ length: 13 }, (_, index) =>
+          format(subMonths(new Date(), 12 - index), "MMM")
+        );
 
         if (!cancelled) {
           setState({
@@ -199,6 +204,7 @@ export function useGetGithubData(): GithubState {
               publicRepos,
               totalStars,
               topLanguages,
+              months,
             },
             error: null,
             isLoading: false,
