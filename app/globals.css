@@ -708,7 +708,7 @@ a.text-about svg{
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-rows: auto;
-    grid-template-columns: 35% 45% 20%;
+    grid-template-columns: 35% 43% 22%;
     grid-auto-columns: 1fr;
     margin-bottom: 80px;
     margin-right: 0;
@@ -804,7 +804,7 @@ a.text-about svg{
     color: #fff;
     margin: 60% auto 30px;
     padding: 20px 15px 30px;
-    font-size: 14px;
+    font-size: 15px;
     position: static;
     border-radius: 10px;
     min-height: 230px;
@@ -2369,16 +2369,39 @@ a.text-about svg{
     .navbar-header {
         padding: .8rem 20px;
     } 
-    .contact-section{
-        padding: 0 14px;
+    .about-heading {
+        padding: 5px 20px 0;
     }
-
+    .about-section {
+        padding: 20px 20px;
+    }
+    .text-about, .text-about a {
+        font-size: 16px;
+    }
+    .power-up {
+        padding: 0 20px;
+    }
+    .experience-subheading {
+        font-size: 16px;
+    }
+    .experience-boxes {
+        gap: 24px;
+    }
+    .contact-heading {
+        padding: 0 20px;
+    }
+    .contact-section{
+        padding: 0 8px;
+    }
     .list-form .form-group {
         margin-bottom: 15px;
     }
 
     .list-form .form-input {
         margin-bottom: 0;
+    }
+    .project-section{
+        padding: 20px 14px 14px;
     }
     .bookmark-section{
         padding: 0 14px;
@@ -2493,8 +2516,8 @@ a.text-about svg{
     }
     .contribution-section {
         flex-direction: column-reverse;
-        padding: 20px 7px;
-        margin: 10px 14px 60px;
+        padding: 19px 5px;
+        margin: 10px 8px 60px;
         border: 2px solid #000;
         border-radius: 6px;
     }
@@ -2512,6 +2535,7 @@ a.text-about svg{
     }
     .contribution-heading {
         margin-bottom: 33px;
+        padding: 0 9px;
     }
     .contribution-left {
         width: 100%;
@@ -2552,14 +2576,14 @@ a.text-about svg{
     }
     .github-repo-activity .github-mobile {
         display: block;
-        font-size: 14px;
+        font-size: 15px;
     }
     .github-repo-activity .github-desktop {
         display: none;
     }
     .github-button {
         position: absolute;
-        gap: 10px;
+        gap: 15px;
         bottom: -5px;
     }
     .github-button a.star-button{
@@ -2633,10 +2657,6 @@ a.text-about svg{
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .power-up {
-        padding-left: 7%;
-        padding-right: 7%;
     }
     .power-list {
         grid-column-gap: 24px;
