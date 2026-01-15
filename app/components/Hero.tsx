@@ -9,15 +9,15 @@ export default function Hero() {
                         <div className="col-12">
                             <div className="hero-image-desktop">
                                 {[
-                                    ["image-d", "hero-desktop-d.png"],
-                                    ["image-i", "hero-desktop-i.png"],
-                                    ["image-c", "hero-desktop-c.png"],
-                                    ["image-k", "hero-desktop-k.png"],
-                                    ["image-y", "hero-desktop-y.png"],
-                                    ["image-d2", "hero-desktop-d2.png"],
-                                    ["image-n", "hero-desktop-n.png"],
-                                    ["image-s", "hero-desktop-s.png"],
-                                    ["image-icon", "hero-desktop-icon.png"],
+                                    ["image-d", "hero-desktop-d.webp"],
+                                    ["image-i", "hero-desktop-i.webp"],
+                                    ["image-c", "hero-desktop-c.webp"],
+                                    ["image-k", "hero-desktop-k.webp"],
+                                    ["image-y", "hero-desktop-y.webp"],
+                                    ["image-d2", "hero-desktop-d2.webp"],
+                                    ["image-n", "hero-desktop-n.webp"],
+                                    ["image-s", "hero-desktop-s.webp"],
+                                    ["image-icon", "hero-desktop-icon.webp"],
                                     ].map(([cls, src]) => (
                                     <img key={cls} className={cls} src={"/images/" + src} alt="Logo" />
                                 ))}
@@ -25,15 +25,15 @@ export default function Hero() {
 
                             <div className="hero-image-mobile">
                                 {[
-                                    ["image-d", "hero-mobile-d.png"],
-                                    ["image-i", "hero-mobile-i.png"],
-                                    ["image-c", "hero-mobile-c.png"],
-                                    ["image-k", "hero-mobile-k.png"],
-                                    ["image-y", "hero-mobile-y.png"],
-                                    ["image-d2", "hero-mobile-d2.png"],
-                                    ["image-n", "hero-mobile-n.png"],
-                                    ["image-s", "hero-mobile-s.png"],
-                                    ["image-icon", "hero-mobile-icon.png"],
+                                    ["image-d", "hero-mobile-d.webp"],
+                                    ["image-i", "hero-mobile-i.webp"],
+                                    ["image-c", "hero-mobile-c.webp"],
+                                    ["image-k", "hero-mobile-k.webp"],
+                                    ["image-y", "hero-mobile-y.webp"],
+                                    ["image-d2", "hero-mobile-d2.webp"],
+                                    ["image-n", "hero-mobile-n.webp"],
+                                    ["image-s", "hero-mobile-s.webp"],
+                                    ["image-icon", "hero-mobile-icon.webp"],
                                 ]
                                 .map(([cls, src]) => (
                                     <img key={cls} className={cls} src={"/images/" + src} alt="Logo" />

@@ -2400,11 +2400,25 @@ a.text-about svg{
     .list-form .form-input {
         margin-bottom: 0;
     }
+    .container#project {
+        margin-bottom: 55px;
+    }
     .project-section{
         padding: 20px 14px 14px;
     }
+    .project-window .project-title{
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+     .project-window .project-description{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .project-window .project-content{
+        padding: 14px 15px 17px;
+    }
     .bookmark-section{
-        padding: 0 14px;
+        padding: 0 9px;
     }
 }
 
@@ -2457,6 +2471,12 @@ a.text-about svg{
     }
     .project-window:hover::after {
         opacity: 0;
+    }
+    .splide__arrow--prev {
+        left: -16px;
+    }
+    .splide__arrow--next {
+        right: -16px;
     }
     .power-up {
         grid-row-gap: 0;
