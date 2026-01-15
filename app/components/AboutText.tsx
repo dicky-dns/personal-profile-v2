@@ -12,7 +12,7 @@ export default function AboutText() {
   const [isMobile, setIsMobile] = useState(false);
 
   const paragraphs = [
-    {wrapperClassName: "mb-4", text: isMobile ? `Hello! 👋🏼 I’m Dicky, a web developer based in Surakarta, Indonesia, with over 3 years of experience across frontend and backend development. I focus on building clean, functional, and user-friendly web experiences through real-world projects. As a self-taught developer, I believe in learning by doing, solving problems, and continuously improving my skills. Currently, I work as a Web Developer in Surakarta (Solo) and I’m open to new opportunities and collaborations, so feel free to reach out to me! 🚀` : `Hello! 👋🏼 I’m Dicky, and I currently live in Surakarta, Indonesia. I'm a programmer with over 3 years of experience, I’m a versatile Web Developer skilled in designing, developing, and managing websites, with a particular focus on PHP and JavaScript. As a self-taught developer, I’m passionate about creating engaging and interactive websites. I’m not just a coder, but also a problem solver, and a lifelong learner—constantly eager to explore new things. Taking an unconventional route, I chose hands-on learning and real-world applications which has helped me build resilience and adaptability in my approach. Currently, I work as a Web Developer at a company in Surakarta (Solo). I’m always open to new opportunities and collaborations, so feel free to reach out to me! 🚀`},
+    {wrapperClassName: "mb-4", text: isMobile ? `Hello! 👋🏼 I’m Dicky, a web developer based in Surakarta, Indonesia, with over 3 years of experience across frontend and backend development. I focus on building clean, functional, and user-friendly web experiences through real-world projects. As a self-taught developer, I believe in learning by doing, solving problems, and continuously improving my skills. Currently, I work as a Web Developer in Surakarta and I’m open to new opportunities and collaborations, so feel free to reach out to me! 🚀` : `Hello! 👋🏼 I’m Dicky, and I currently live in Surakarta, Indonesia. I'm a programmer with over 3 years of experience, I’m a versatile Web Developer skilled in designing, developing, and managing websites, with a particular focus on PHP and JavaScript. As a self-taught developer, I’m passionate about creating engaging and interactive websites. I’m not just a coder, but also a problem solver, and a lifelong learner—constantly eager to explore new things. Taking an unconventional route, I chose hands-on learning and real-world applications which has helped me build resilience and adaptability in my approach. Currently, I work as a Web Developer at a company in Surakarta. I’m always open to new opportunities and collaborations, so feel free to reach out to me! 🚀`},
     {text: `Looking for ways to grow?`},
     {wrapperClassName: "mb-5", text: `Check out my Bookmark — a curated collection of links, videos, and other resources to help you level up your skills.`},
   ]
@@ -56,8 +56,8 @@ export default function AboutText() {
     }
 
     gsap.registerPlugin(ScrollTrigger);
-    const staggerValue = isMobile ? 0.08 : 0.04;
-    const start = isMobile ? "top 70%" : "top 80%";
+    const staggerValue = isMobile ? 0.09 : 0.04;
+    const start = isMobile ? "top 75%" : "top 80%";
     const end = isMobile ? "top 10%" : "top 20%";
 
     const ctx = gsap.context(() => {
