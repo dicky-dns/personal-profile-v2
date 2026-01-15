@@ -58,7 +58,7 @@ export default function AboutText() {
     gsap.registerPlugin(ScrollTrigger);
     const staggerValue = isMobile ? 0.09 : 0.04;
     const start = isMobile ? "top 75%" : "top 80%";
-    const end = isMobile ? "top 10%" : "top 20%";
+    const end = isMobile ? "bottom 10%" : "bottom 20%";
 
     const ctx = gsap.context(() => {
       const words = paragraphRef.current?.querySelectorAll(".text-about, a") ?? [];
