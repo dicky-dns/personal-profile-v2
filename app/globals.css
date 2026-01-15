@@ -2387,6 +2387,17 @@ a.text-about svg{
     .experience-boxes {
         gap: 24px;
     }
+    .experience-content{
+        padding: 12px 14px;
+    }
+    .experience-box {
+        min-width: 310px;
+    }   
+    .experience-period {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 26px;
+    }
     .contact-heading {
         padding: 0 20px;
     }
