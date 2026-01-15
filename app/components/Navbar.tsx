@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "scrollTarget";
@@ -25,6 +25,7 @@ export default function Navbar(){
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [greetingIndex, setGreetingIndex] = useState(0);
+    const prevPathnameRef = useRef(pathname);
     const scrollToSection = (id: string | null) => (event: React.MouseEvent) => {
       if (pathname !== "/") {
         if (id) {
@@ -52,12 +53,29 @@ export default function Navbar(){
     const greeting = greetings[greetingIndex] ?? "Hello";
 
     useEffect(() => {
+      if (prevPathnameRef.current !== pathname) {
+        const timeoutId = window.setTimeout(() => setIsMenuOpen(false), 0);
+        prevPathnameRef.current = pathname;
+        return () => window.clearTimeout(timeoutId);
+      }
+      return undefined;
+    }, [pathname, setIsMenuOpen]);
+
+    useEffect(() => {
       const interval = window.setInterval(() => {
         setGreetingIndex((prev) => (prev + 1) % greetings.length);
       }, 2900);
 
       return () => window.clearInterval(interval);
     }, []);
+
+    const handleMobileNavClick = (sectionId: string | null) => (event: React.MouseEvent) => {
+      if (isHome) {
+        setIsMenuOpen(false);
+      }
+
+      scrollToSection(sectionId)(event);
+    };
 
     return ( 
         <div className="container">
@@ -132,45 +150,33 @@ export default function Navbar(){
                     <Link
                       href="/"
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={(event) => {
-                        setIsMenuOpen(false);
-                        scrollToSection(null)(event);
-                      }}
+                      onClick={handleMobileNavClick(null)}
                     >
                       <b className="text-menu">Home</b>
                     </Link>
                     <Link
                       href={isHome ? "/#about" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={(event) => {
-                        setIsMenuOpen(false);
-                        scrollToSection("about")(event);
-                      }}
+                      onClick={handleMobileNavClick("about")}
                     >
                       <b className="text-menu">About</b>
                     </Link>
                     <Link
                       href={isHome ? "/#project" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={(event) => {
-                        setIsMenuOpen(false);
-                        scrollToSection("project")(event);
-                      }}
+                      onClick={handleMobileNavClick("project")}
                     >
                       <b className="text-menu">Project</b>
                     </Link>
                     <Link
                       href={isHome ? "/#contact" : "/"}
                       className="navbar-menu-mobile text-dark text-decoration-none"
-                      onClick={(event) => {
-                        setIsMenuOpen(false);
-                        scrollToSection("contact")(event);
-                      }}
+                      onClick={handleMobileNavClick("contact")}
                     >
                       <b className="text-menu">Contact</b>
                     </Link>
                     <div className="navbar-menu-mobile-footer">
-                        <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="button-dark-play greeting-button d-block">{greeting}</Link>
+                        <Link href="/contact" className="button-dark-play greeting-button d-block">{greeting}</Link>
                     </div>
                 </div>
               </div>
