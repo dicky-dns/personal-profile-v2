@@ -3,23 +3,23 @@ import { url } from "inspector";
 export const projects = [
   {
     id: 1,
-    title: "Media & Event Web",
-    subtitle: "Media architectural & design",
-    url: "https://anabata.com/",
-    description:
-      "This website provides an architectural media platform offering news, insights, design inspiration, videos, and architectural events.",
-    image: "/projects/project-1.png",
-    tech: ["Php", "Laravel", "JQuery", "Bootstrap"],
-  },
-  {
-    id: 2,
     title: "Company Profile",
     subtitle: "Company profile for business",
     url: "https://cv.budiarianto.com/",
     description:
       "A company profile website that showcases the business's services, portfolio, team, and contact information to attract potential clients.",
     image: "/projects/project-2.png",
-    tech: ["Php", "Laravel", "Blade", "MySQL"],
+    tech: ["Laravel", "Blade", "MySQL", "Bootstrap"],
+  },
+  {
+    id: 2,
+    title: "Media & Event Web",
+    subtitle: "Media architectural & design",
+    url: "https://anabata.com/",
+    description:
+      "This website provides an architectural media platform offering news, insights, design inspiration, videos, and architectural events.",
+    image: "/projects/project-1.png",
+    tech: ["Laravel", "JQuery", "Bootstrap"],
   },
   {
     id: 3,
