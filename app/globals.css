@@ -9,12 +9,14 @@
 :root {
   --font-heebo: 'Heebo', sans-serif;
   --font-rubik: 'Rubik Mono One', sans-serif;
+  color-scheme: light !important;
 }
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    background-color: #fff;
 }
 .no-scroll {
     overflow: hidden;
@@ -2370,7 +2372,8 @@ a.text-about svg{
         padding: .8rem 20px;
     } 
     .hero{
-        height: calc(100dvh - 250px);
+        min-height: calc(100svh - 250px);
+        height: auto; 
         margin-bottom: 90px;
     }
     .about-heading {
