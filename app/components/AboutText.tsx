@@ -59,6 +59,7 @@ export default function AboutText() {
     const staggerValue = isMobile ? 0.09 : 0.04;
     const start = isMobile ? "top 75%" : "top 80%";
     const end = isMobile ? "top 1%" : "bottom 20%";
+    const opacity = isMobile ? 0.1 : 0.2;
 
     const ctx = gsap.context(() => {
       const words = paragraphRef.current?.querySelectorAll(".text-about, a") ?? [];
@@ -68,7 +69,7 @@ export default function AboutText() {
 
       gsap.fromTo(
         words,
-        { opacity: 0.2, textShadow: "none" },
+        { opacity: opacity, textShadow: "none" },
         {
           opacity: 1,
           stagger: staggerValue,

@@ -31,7 +31,7 @@ body {
     color: #222;
     font-family: var(--font-heebo);
     overflow-x: hidden;
-    /* user-select: none; */
+    user-select: none;
 }
 
 html, body, form label {
@@ -338,14 +338,15 @@ img {
     height: calc(100dvh - 130px);
     width: auto;
     left: 50%;
-    transform: perspective(1px) translateY(-150%) translateX(-50%);
+    transform: translate3d(-50%, -150%, 0);
     position: absolute;  
     opacity: 0;
-    top: 0%;
+    top: 50%;
+    will-change: transform, opacity;
 }
 
 .hero .hero-image-mobile img {
-    transform: perspective(1px) translateY(-150%) translateX(-50%);
+    transform: translate3d(-50%, -150%, 0);
 }
 
 .hero .hero-image-desktop .image-d {
@@ -391,18 +392,15 @@ img {
 @keyframes fallTopDesktop {
   0% {
     opacity: 0;
-    top: 0%;
-    transform: perspective(1px) translateY(-150%) translateX(-50%);
+    transform: translate3d(-50%, -150%, 0);
   }
   80% {
     opacity: 1;
-    top: 47%;
-    transform: perspective(1px) translateY(-47%) translateX(-50%);
+    transform: translate3d(-50%, -47%, 0);
   }
   100% {
     opacity: 1;
-    top: 50%;
-    transform: perspective(1px) translateY(-50%) translateX(-50%);
+    transform: translate3d(-50%, -50%, 0);
   }
 }
 
@@ -449,36 +447,30 @@ img {
 @keyframes fallTopMobile {
   0% {
     opacity: 0;
-    top: 0%;
-    transform: perspective(1px) translateY(-150%) translateX(-50%);
+    transform: translate3d(-50%, -150%, 0);
   }
   80% {
     opacity: 1;
-    top: 50%;
-    transform: perspective(1px) translateY(-47%) translateX(-50%);
+    transform: translate3d(-50%, -47%, 0);
   }
   100% {
     opacity: 1;
-    top: 50%;
-    transform: perspective(1px) translateY(-55%) translateX(-50%);
+    transform: translate3d(-50%, -55%, 0);
   }
 }
 
 @keyframes fallTopDesktop {
   0% {
     opacity: 0;
-    top: 0%;
-    transform: perspective(1px) translateY(-150%) translateX(-50%);
+    transform: translate3d(-50%, -150%, 0);
   }
   80% {
     opacity: 1;
-    top: 47%;
-    transform: perspective(1px) translateY(-47%) translateX(-50%);
+    transform: translate3d(-50%, -47%, 0);
   }
   100% {
     opacity: 1;
-    top: 50%;
-    transform: perspective(1px) translateY(-50%) translateX(-50%);
+    transform: translate3d(-50%, -50%, 0);
   }
 }
 
@@ -1149,7 +1141,7 @@ a.text-about svg{
 }
 .projects .splide__pagination__page.is-active{
     transform: scale(1);
-    background-color: #646464;
+    background-color: #bababa;
 }
 .projects .splide__pagination {
     bottom: -25px;
@@ -2187,6 +2179,10 @@ a.text-about svg{
         max-width: 700px;
         display: block;
     }
+    .hero .hero-image-mobile img {
+        top: 50%;
+        will-change: transform, opacity;
+    }
     .image-acc{
         display: none;
     }
@@ -2401,7 +2397,7 @@ a.text-about svg{
         font-size: 16px;
     }
     .experience-box {
-        min-width: 300px;
+        min-width: 280px;
     }   
     .experience-period {
         font-size: 14px;
@@ -2410,16 +2406,26 @@ a.text-about svg{
     }
     .contact-heading {
         padding: 0 20px;
+        margin-bottom: 25px;
     }
     .contact-section{
         padding: 0 8px;
     }
+    .contact-heading .contact-title {
+        font-size: 34px;
+    }
+    .contact-heading .contact-subtitle {
+        font-size: 16px;
+    }
     .list-form .form-group {
         margin-bottom: 15px;
     }
-
     .list-form .form-input {
         margin-bottom: 0;
+        padding: 10px;
+    }
+    .list-form textarea.form-input {
+        height: 135px;
     }
     .container#project {
         margin-bottom: 55px;
