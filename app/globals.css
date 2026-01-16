@@ -404,43 +404,43 @@ img {
   }
 }
 
-.hero .hero-image-mobile .image-d {
+.hero .hero-image-mobile.is-ready .image-d {
     animation: fallTopMobile 1.2s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-i {
+.hero .hero-image-mobile.is-ready .image-i {
     animation: fallTopMobile 1.29s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-c {
+.hero .hero-image-mobile.is-ready .image-c {
     animation: fallTopMobile 1.32s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-k {
+.hero .hero-image-mobile.is-ready .image-k {
     animation: fallTopMobile 1.39s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-y {
+.hero .hero-image-mobile.is-ready .image-y {
     animation: fallTopMobile 1.5s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-d {
+.hero .hero-image-mobile.is-ready .image-d {
     animation: fallTopMobile 1.54s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-d2 {
+.hero .hero-image-mobile.is-ready .image-d2 {
     animation: fallTopMobile 1.5s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-n {
+.hero .hero-image-mobile.is-ready .image-n {
     animation: fallTopMobile 1.34s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-s {
+.hero .hero-image-mobile.is-ready .image-s {
     animation: fallTopMobile 1.25s ease-out forwards;
 }
 
-.hero .hero-image-mobile .image-icon {
+.hero .hero-image-mobile.is-ready .image-icon {
     animation: fallTopMobile 1.6s ease-out forwards;
 }
 
@@ -2369,6 +2369,10 @@ a.text-about svg{
     .navbar-header {
         padding: .8rem 20px;
     } 
+    .hero{
+        height: calc(100dvh - 250px);
+        margin-bottom: 90px;
+    }
     .about-heading {
         padding: 5px 20px 0;
     }
