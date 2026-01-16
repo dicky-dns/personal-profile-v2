@@ -2394,8 +2394,11 @@ a.text-about svg{
     .experience-content{
         padding: 12px 14px;
     }
+    .experience-title {
+        font-size: 16px;
+    }
     .experience-box {
-        min-width: 310px;
+        min-width: 300px;
     }   
     .experience-period {
         font-size: 14px;

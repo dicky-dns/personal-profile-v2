@@ -19,7 +19,7 @@ export const projects = [
     description:
       "This website provides an architectural media platform offering news, insights, design inspiration, videos, and architectural events.",
     image: "/projects/project-1.png",
-    tech: ["Laravel", "JQuery", "Bootstrap"],
+    tech: ["Laravel", "JQuery", "Bootstrap", "MySQL"],
   },
   {
     id: 3,
@@ -27,9 +27,9 @@ export const projects = [
     subtitle: "Company profile for business",
     url: "https://movie.budiarianto.com/",
     description:
-      "A movie web application that provides users with information about movies, including reviews, ratings, trailers, and showtimes.",
+      "A company profile platform showcasing services, portfolio, team, and contact details professionally.",
     image: "/projects/project-3.png",
-    tech: ["Php", "Laravel", "Blade", "MySQL"],
+    tech: ["Laravel", "Blade", "Bootstrap", "MySQL"],
   },
   {
     id: 4,
@@ -37,9 +37,9 @@ export const projects = [
     subtitle: "Online store for various products",
     url: "https://store.budiarianto.com/",
     description:
-      "An online store for various products, including clothing, electronics, and accessories.",
+      "Unified internal ERP system for managing core business processes end-to-end.",
     image: "/projects/project-4.png",
-    tech: ["Php", "Laravel", "VueJS", "MySQL"],
+    tech: ["Laravel", "Blade", "Bootstrap", "MySQL"],
   },
   {
     id: 5,
@@ -47,8 +47,8 @@ export const projects = [
     subtitle: "Online store for various products",
     url: "https://store.budiarianto.com/",
     description:
-      "An online store for various products, including clothing, electronics, and accessories.",
+      "Company ERP platform streamlining purchasing, sales, inventory, accounting, and reporting workflows.",
     image: "/projects/project-4.png",
-    tech: ["Php", "Laravel", "VueJS", "MySQL"],
+    tech: ["Laravel", "Go", "VueJs", "Tailwind", "PostgreSQL"],
   }
 ]
