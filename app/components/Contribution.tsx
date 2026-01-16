@@ -206,7 +206,7 @@ export default function Contribution() {
                               <a className="material-icons" target="_blank" href="https://github.com/dicky-dns">open_in_new</a>
                             </span>
                             <span className="github-mobile">
-                              Currently with {publicRepos} public repositories, mostly written in {topLanguages ? topLanguages.join(", ") : ""}.
+                              Total {publicRepos} public repositories mostly built with {topLanguages ? topLanguages.join(", ") : ""}.
                             </span>
                         </div>  
                     </div>
