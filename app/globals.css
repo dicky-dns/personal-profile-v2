@@ -1407,7 +1407,7 @@ a.text-about svg{
 .play-area {
     width: 100%;
     padding-top: 29px;
-    position: static;
+    position: relative;
     inset: 0%;
     overflow: visible;
     max-width: 1900px;
@@ -1418,6 +1418,8 @@ a.text-about svg{
 .play-area .play-details{
     width: fit-content;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 .play-area.contact-area {
     margin: 0 auto;
@@ -1505,7 +1507,7 @@ a.text-about svg{
     margin-right: auto;
     position: relative;
     top: -200px;
-    z-index: -1;
+    z-index: 0;
     --arm-radius: 26vw;
     --arm-center-x: 50%;
     --arm-center-y: 58%;
