@@ -38,11 +38,21 @@ export const projects = [
     url: "https://store.budiarianto.com/",
     description:
       "Unified internal ERP system for managing core business processes end-to-end.",
-    image: "/projects/project-4.png",
+    image: "/projects/mes.png",
     tech: ["Laravel", "Blade", "Bootstrap", "MySQL"],
   },
   {
     id: 5,
+    title: "Gateway Ticketing System",
+    subtitle: "",
+    url: "https://store.budiarianto.com/",
+    description:
+      "A ticketing gateway platform built for Tirtonadi Bus Station to manage passengers and streamline ticketing operations with ticket vending machines.",
+    image: "/projects/tirtonadi.png",
+    tech: ["Laravel", "Blade", "Bootstrap", "MySQL"],
+  },
+  {
+    id: 6,
     title: "ERP Manufacturing Industry",
     subtitle: "Online store for various products",
     url: "https://store.budiarianto.com/",
