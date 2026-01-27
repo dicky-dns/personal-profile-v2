@@ -2673,7 +2673,7 @@ a.text-about svg{
     } 
     .chat-panel {
         width: 100vw;
-        height: 100svh;
+        height: 100dvh;
         max-width: none;
         max-height: none;
         border-radius: 0;
