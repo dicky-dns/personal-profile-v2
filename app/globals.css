@@ -2013,6 +2013,30 @@ a.text-about svg{
 .bookmark-card-link:hover{
     color: #515151;
 }
+.bookmark-pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 14px 10px;
+}
+.bookmark-page-btn{
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: url(/images/cpointer.png) 4 4, pointer !important;
+}
+.bookmark-page-btn:disabled{
+    opacity: 0.4;
+    cursor: url(/images/cdefault.png) 4 4, pointer !important;
+}
+.bookmark-page-info{
+    font-size: 14px;
+    color: #2b2b2b;
+}
 /* End Bookmarks */
 
 @media only screen and (max-width: 1199px) {
@@ -2733,7 +2757,7 @@ a.text-about svg{
     }
     .play-area {
         display: flex;
-        height: calc(100% - 330px);
+        height: calc(100% - 270px);
         align-items: center;
         margin: 0 auto;
         padding-top: 0;

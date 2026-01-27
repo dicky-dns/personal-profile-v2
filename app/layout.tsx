@@ -7,6 +7,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import RightClickWarning from "./components/RightClickWarning";
+import ChatWidget from "./components/ChatWidget";
+import Footer from "./components/Footer";
 
 config.autoAddCss = false;
 
@@ -42,9 +44,14 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {/* <RightClickWarning /> */}
+        
+        <RightClickWarning />
         
         {children}
+
+        <ChatWidget />
+
+        <Footer/>
       </body>
     </html>
   );
