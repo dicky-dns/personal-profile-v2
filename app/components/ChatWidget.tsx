@@ -174,14 +174,15 @@ export default function ChatWidget() {
         </div>
       )}
     </div>
-          {!isOpen && (
-        <button
-          onClick={handleChatOpen}
-          className="chat-toggle"
-        >
-          <img src="/images/cat2.png" alt="Chat" />
-        </button>
-      )}
+      <button
+        onClick={handleChatOpen}
+        className={`chat-toggle ${isOpen ? "is-hidden" : "is-visible"}`}
+        style={{ cursor: "url(/images/cpointer.png) 4 4, pointer" }}
+        aria-hidden={isOpen}
+        tabIndex={isOpen ? -1 : 0}
+      >
+        <img src="/images/cat.png" alt="Chat" />
+      </button>
     </>
   );
 }

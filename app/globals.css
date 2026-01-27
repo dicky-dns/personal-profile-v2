@@ -220,14 +220,29 @@ img {
     background: transparent;
     color: #fff;
     border: 0;
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateY(0);
     width: 75px;
     position: fixed;
     bottom: -1;
     right: 16px;
     cursor: url(/images/cpointer.png) 4 4, pointer !important;
     z-index: 2000;
+    opacity: 1;
+    transition: opacity 200ms ease, transform 200ms ease;
+    pointer-events: auto;
     
+}
+
+.chat-toggle.is-hidden {
+    opacity: 0;
+    transform: scaleX(-1) translateY(8px);
+    pointer-events: none;
+}
+
+.chat-toggle.is-visible {
+    opacity: 1;
+    transform: scaleX(-1) translateY(0);
+    pointer-events: auto;
 }
 
 @keyframes chat-pop {
