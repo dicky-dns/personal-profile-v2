@@ -12,7 +12,12 @@ export default function AboutText() {
   const [isMobile, setIsMobile] = useState(false);
 
   const paragraphs = [
-    {wrapperClassName: "mb-4", text: isMobile ? `Hello! 👋🏼 I’m Dicky, a web developer based in Surakarta, Indonesia, with over 3 years of experience across frontend and backend development. I focus on building clean, functional, and user-friendly web experiences through real-world projects. As a self-taught developer, I believe in learning by doing, solving problems, and continuously improving my skills. Currently, I work as a Web Developer in Surakarta and I’m open to new opportunities and collaborations, so feel free to reach out to me! 🚀` : `Hello! 👋🏼 I’m Dicky, and I currently live in Surakarta, Indonesia. I'm a programmer with over 3 years of experience, I’m a versatile Web Developer skilled in designing, developing, and managing websites, with a particular focus on PHP and JavaScript. As a self-taught developer, I’m passionate about creating engaging and interactive websites. I’m not just a coder, but also a problem solver, and a lifelong learner—constantly eager to explore new things. Taking an unconventional route, I chose hands-on learning and real-world applications which has helped me build resilience and adaptability in my approach. Currently, I work as a Web Developer at a company in Surakarta. I’m always open to new opportunities and collaborations, so feel free to reach out to me! 🚀`},
+    {
+    wrapperClassName: "mb-4",
+      text: isMobile
+        ? `Hello! 👋🏼 I’m Dicky, a web developer based in Surakarta, Indonesia, with solid hands-on experience working across frontend, backend, and database systems. I enjoy turning ideas into clean, functional, and user-friendly web experiences through real-world projects. As a self-taught developer, I believe the best way to grow is by building things, solving real problems, and constantly refining how things work behind the scenes. Currently, I’m focused on building web projects and sharpening my skills and I’m open to new opportunities and collaborations, so feel free to reach out to me! 🚀`
+        : `Hello! 👋🏼 I’m Dicky, and I currently live in Surakarta, Indonesia. I’m a Web Developer who works across frontend, backend, and database layers, focusing on building well-structured, reliable, and maintainable web applications. As a self-taught developer, I’m driven by curiosity and a strong interest in how systems connect end to end—from user interactions on the surface to data handling behind the scenes. I’m not just someone who writes code, but someone who enjoys analyzing problems, improving workflows, and learning continuously through hands-on experience. Taking an unconventional learning path through real-world projects has helped me stay adaptable and resilient in my approach. Currently, I’m focused on building web projects and sharpening my skills, and I’m always open to new opportunities and collaborations, so feel free to reach out to me! 🚀`
+    },
     {text: `Looking for ways to grow?`},
     {wrapperClassName: "mb-5", text: `Check out my Bookmark — a curated collection of links, videos, and other resources to help you level up your skills.`},
   ]
@@ -58,7 +63,7 @@ export default function AboutText() {
     gsap.registerPlugin(ScrollTrigger);
     const staggerValue = isMobile ? 0.09 : 0.04;
     const start = isMobile ? "top 75%" : "top 80%";
-    const end = isMobile ? "top 1%" : "bottom 20%";
+    const end = isMobile ? "top 1%" : "bottom 50%";
     const opacity = isMobile ? 0.1 : 0.2;
 
     const ctx = gsap.context(() => {

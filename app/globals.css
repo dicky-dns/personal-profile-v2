@@ -31,7 +31,7 @@ body {
     color: #222;
     font-family: var(--font-heebo);
     overflow-x: hidden;
-    /* user-select: none; */
+    user-select: none;
 }
 
 html, body, form label {
