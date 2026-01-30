@@ -2700,8 +2700,9 @@ a.text-about svg{
     }
     .chat-header {
         justify-content: start;
-        padding: 16px 4px;
+        padding: 15px 4px;
         background-color: #fff;
+        font-size: 17px;
     }
     .chat-header span {
         padding-top: 3px;
