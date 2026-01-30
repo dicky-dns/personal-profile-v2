@@ -13,6 +13,7 @@ export default function ChatWidget() {
   const typingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
   const bodyOverflowRef = useRef<string | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   const setScrollingForMobile = (value: boolean) => {
     if (typeof window === "undefined") return;
@@ -49,6 +50,39 @@ export default function ChatWidget() {
       bodyOverflowRef.current = null;
     }
   }, [isScrolling]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+    if (!window.matchMedia("(max-width: 575px)").matches || !isOpen) return;
+
+    const updateViewportVars = () => {
+      const viewport = window.visualViewport;
+      const height = viewport ? viewport.height : window.innerHeight;
+      const offsetTop = viewport ? viewport.offsetTop : 0;
+      document.documentElement.style.setProperty("--chat-vh", `${height}px`);
+      document.documentElement.style.setProperty("--chat-vv-offset", `${offsetTop}px`);
+    };
+
+    updateViewportVars();
+
+    window.addEventListener("orientationchange", updateViewportVars);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", updateViewportVars);
+      window.visualViewport.addEventListener("scroll", updateViewportVars);
+    } else {
+      window.addEventListener("resize", updateViewportVars);
+    }
+
+    return () => {
+      window.removeEventListener("orientationchange", updateViewportVars);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", updateViewportVars);
+        window.visualViewport.removeEventListener("scroll", updateViewportVars);
+      } else {
+        window.removeEventListener("resize", updateViewportVars);
+      }
+    };
+  }, [isOpen]);
 
   function typeBotMessage(text: string) {
     if (typingTimerRef.current) {
@@ -99,6 +133,19 @@ export default function ChatWidget() {
     const data = await res.json();
     typeBotMessage(data.reply);
   }
+
+  const resizeInput = () => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    const maxHeight = parseFloat(getComputedStyle(el).maxHeight || "0");
+    const nextHeight = Math.min(el.scrollHeight, maxHeight || el.scrollHeight);
+    el.style.height = `${nextHeight}px`;
+  };
+
+  useEffect(() => {
+    resizeInput();
+  }, [input]);
 
   function closeChat() {
     setIsClosing(true);
@@ -159,16 +206,34 @@ export default function ChatWidget() {
             </div>
 
             <div className="chat-input-row">
-              <input
-                value={input}
-                onChange={e => setInput(e.target.value)}
-                onKeyDown={e => e.key === "Enter" && sendMessage()}
-                placeholder="Tulis pertanyaan..."
-                className="chat-input"
-              />
-              <button onClick={sendMessage} className="chat-send">
-                Send
-              </button>
+              <div className="chat-input-wrap">
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={e => {
+                    setInput(e.target.value);
+                    resizeInput();
+                  }}
+                  onKeyDown={e => {
+                    if (e.key !== "Enter") return;
+                    const isMobile = typeof window !== "undefined"
+                      && window.matchMedia("(max-width: 575px)").matches;
+                    if (isMobile) {
+                      return;
+                    }
+                    if (!e.shiftKey) {
+                      e.preventDefault();
+                      sendMessage();
+                    }
+                  }}
+                  placeholder="Tulis pertanyaan..."
+                  className="chat-input"
+                  rows={1}
+                />
+                <button onClick={sendMessage} className="chat-send" aria-label="Send">
+                  <img src="/images/arrow-right.png" alt="Chat" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
