@@ -26,6 +26,12 @@ export default function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [greetingIndex, setGreetingIndex] = useState(0);
     const prevPathnameRef = useRef(pathname);
+    const setMenuOpen = (next: boolean) => {
+      setIsMenuOpen(next);
+      if (next) {
+        setGreetingIndex(0);
+      }
+    };
     const scrollToSection = (id: string | null) => (event: React.MouseEvent) => {
       if (pathname !== "/") {
         if (id) {
@@ -54,12 +60,12 @@ export default function Navbar(){
 
     useEffect(() => {
       if (prevPathnameRef.current !== pathname) {
-        const timeoutId = window.setTimeout(() => setIsMenuOpen(false), 0);
+        const timeoutId = window.setTimeout(() => setMenuOpen(false), 0);
         prevPathnameRef.current = pathname;
         return () => window.clearTimeout(timeoutId);
       }
       return undefined;
-    }, [pathname, setIsMenuOpen]);
+    }, [pathname]);
 
     useEffect(() => {
       const interval = window.setInterval(() => {
@@ -71,7 +77,7 @@ export default function Navbar(){
 
     const handleMobileNavClick = (sectionId: string | null) => (event: React.MouseEvent) => {
       if (isHome) {
-        setIsMenuOpen(false);
+        setMenuOpen(false);
       }
 
       scrollToSection(sectionId)(event);
@@ -111,7 +117,7 @@ export default function Navbar(){
                           type="button"
                           className="button-hamburger"
                           aria-label="Open menu"
-                          onClick={() => setIsMenuOpen(true)}
+                          onClick={() => setMenuOpen(true)}
                         />
                     </div>
                 </div>
@@ -131,7 +137,7 @@ export default function Navbar(){
                           type="button"
                           className="button-hamburger"
                           aria-label="Open menu"
-                          onClick={() => setIsMenuOpen(true)}
+                          onClick={() => setMenuOpen(true)}
                         />
                     </div>
                 </div>
@@ -141,7 +147,7 @@ export default function Navbar(){
                   type="button"
                   className="button-close-mobile"
                   aria-label="Close menu"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                 >
                   <Image src="images/close-white.svg" alt="Close Menu" fill/>
                 </button>
