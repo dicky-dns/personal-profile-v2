@@ -704,59 +704,6 @@ img {
     100% { transform: translateY(0); }
 }
 
-.hero .image-acc {
-    position: absolute;
-    z-index: 1;
-    width: fit-content;
-}
-
-.hero .image-acc.with-animation {
-    position: absolute;
-    z-index: 1;
-    width: fit-content;
-    animation: topBottom 3s linear infinite;
-}
-
-.hero .image-acc.animation1 {
-    left: 40px; 
-    bottom: 50px; 
-    transform: rotate(-40deg);
-}
-
-.hero .image-acc.animation1 img{
-    width: 150px;
-}
-
-.hero .image-acc.animation2 {
-    right: 90px; 
-    top: 70px; 
-    transform: rotate(-30deg);
-}
-
-.hero .image-acc.animation2 img{
-    width: 70px;
-}
-
-#parallax {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: clamp(2rem, 6vw + 1.5vh, 7rem);
-    display: flex;
-    user-select: none;
-    height: fit-content;
-    font-family: var(--font-rubik);
-}
-#parallax .inner {
-    display: flex;
-    gap: 4rem;
-}
-#parallax span {
-    display: inline-block;
-}
 .hero-divider{
     height: 50px;
 }
