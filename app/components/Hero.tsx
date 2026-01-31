@@ -27,6 +27,22 @@ const mobileImages = [
 
 export default function Hero() {
     const [isMobileReady, setIsMobileReady] = useState(false)
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+        const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+        updateIsMobile();
+
+        if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener("change", updateIsMobile);
+        return () => mediaQuery.removeEventListener("change", updateIsMobile);
+        }
+
+        mediaQuery.addListener(updateIsMobile);
+        return () => mediaQuery.removeListener(updateIsMobile);
+    }, []);
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 767px)")
@@ -67,17 +83,21 @@ export default function Hero() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <div className="hero-image-desktop">
-                                {desktopImages.map(([cls, src]) => (
-                                    <img key={cls} className={cls} src={"/images/" + src} alt="Logo" />
-                                ))}
-                            </div>
-
+                            {! isMobile && (
+                                <div className="hero-image-desktop">
+                                    {desktopImages.map(([cls, src]) => (
+                                        <img key={cls} className={cls} src={"/images/" + src} alt="Logo" />
+                                    ))}
+                                </div>
+                            )}
+                            
+                            { isMobile && (    
                             <div className={`hero-image-mobile${isMobileReady ? " is-ready" : ""}`}>
                                 {mobileImages.map(([cls, src]) => (
                                     <img key={cls} className={cls} src={"/images/" + src} alt="Logo" />
                                 ))}
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>

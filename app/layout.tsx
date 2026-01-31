@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import RightClickWarning from "./components/RightClickWarning";
 import ChatWidget from "./components/ChatWidget";
 import Footer from "./components/Footer";
+import DisableZoom from "./components/DisableZoom";
 
 config.autoAddCss = false;
 
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,6 +54,8 @@ export default function RootLayout({
         <Navbar />
         
         <RightClickWarning />
+        
+        <DisableZoom />
         
         {children}
 
