@@ -38,11 +38,21 @@ export default function Contribution() {
   const weeks = useMemo<Week[]>(() => {
     if (!calendar?.weeks) return [];
 
-    return calendar.weeks.map((week: Week) => {
+    return calendar.weeks.map((week: Week, index: number) => {
       const days = [...week.contributionDays];
+      const isFirst = index === 0;
+      const isLast = index === calendar.weeks.length - 1;
+
       while (days.length < 7) {
-        days.unshift({ date: null, contributionCount: 0 });
+        if (isFirst) {
+          days.unshift({ date: null, contributionCount: 0 });
+        } else if (isLast) {
+          days.push({ date: null, contributionCount: 0 });
+        } else {
+          days.unshift({ date: null, contributionCount: 0 });
+        }
       }
+
       return { contributionDays: days };
     });
   }, [calendar]);
