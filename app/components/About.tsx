@@ -1,5 +1,6 @@
 import AboutText from "./AboutText";
 import Experience from "./Experience";
+import Principle from "./Principle";
 
 export default function About() {
   return (
@@ -16,7 +17,7 @@ export default function About() {
           </div>
 
           <div className="row">
-            <Experience />
+            <Principle />
           </div>
       </div>
   );

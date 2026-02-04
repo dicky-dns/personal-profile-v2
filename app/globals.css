@@ -823,6 +823,42 @@ a.text-about svg{
     outline-offset: -5px;
     border-radius: 5px;
 }
+.principle-section{
+   padding: 20px;
+   margin-bottom: 80px;
+}
+.principle-heading{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.principle-heading img{
+    height: 118px;
+    width: auto;
+    max-width: 550px;
+}
+.principle-subheading{
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.principle-boxes{
+    display: flex;
+    gap: 30px;
+}
+.principle-box{
+    padding: 17px;
+    min-width: 360px;
+    border: 2px solid black;
+    border-radius: 5px;
+    outline-offset: -2px;
+    cursor: url(/images/eye.png) 20 20, pointer !important;
+    height: fit-content;
+}
+.principle-box:hover{
+    outline: black solid 4px;
+    outline-offset: -5px;
+    border-radius: 5px;
+}
 .experience-content{
     padding:15px;
 }
@@ -846,6 +882,19 @@ a.text-about svg{
     font-size: 18px;
     line-height: 1.3;
     margin-bottom: 10px;
+    text-align: left;
+}
+.principle-title {
+    font-weight: 600;
+    font-family: var(--font-rubik);
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.principle-description{
+    font-weight: 400;
+    font-size: 16px;
     text-align: left;
 }
 .experience-company{
@@ -2298,6 +2347,11 @@ a.text-about svg{
         inset: 22px -2% auto auto !important;
         margin-right: -1% !important;
     }
+    .principle-heading img{
+        height: auto;
+        max-width: 350px;
+        margin-bottom: 17px;
+    }
     .contribution-heading {
         max-width: 400px;
         margin-bottom: 17px;
@@ -2664,7 +2718,31 @@ a.text-about svg{
         font-size: 14px;
         font-weight: 500;
         margin-top: 26px;
+    }  
+    .principle-heading{
+        margin-bottom: 10px;
     }
+    .principle-heading img{
+        height: auto;
+        width: auto;
+        width: 100%;
+        max-width:350px;
+    }
+    .principle-subheading {
+        font-size: 16px;
+    }
+    .principle-boxes {
+        gap: 24px;
+    }
+    .principle-content{
+        padding: 12px 14px;
+    }
+    .principle-title {
+        font-size: 17px;
+    }
+    .principle-box {
+        min-width: 300px;
+    }  
     .contact-heading {
         padding: 0 20px;
         margin-bottom: 25px;
@@ -2774,6 +2852,15 @@ a.text-about svg{
         width: 60%;        ;
     }
     .experience-box:hover{
+        outline: 0;
+        outline-offset: 0;
+        border-radius: 0;
+    }
+    .principle-heading img{
+        height: auto;
+        width: 85%;
+    }
+    .principle-box:hover{
         outline: 0;
         outline-offset: 0;
         border-radius: 0;

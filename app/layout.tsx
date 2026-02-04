@@ -53,7 +53,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         
-        <RightClickWarning />
+        {/* <RightClickWarning /> */}
         
         <DisableZoom />
         
