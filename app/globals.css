@@ -2179,16 +2179,6 @@ a.text-about svg{
     .contribution-right {
         width: 20%;
     }
-
-    .github-heading img
-    {
-        width: 53px;
-        height: 53px;
-    }
-
-    .github-heading {
-        margin-bottom: 7px;
-    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -2276,7 +2266,7 @@ a.text-about svg{
         max-width: 80%;
     }
     .text-about, .text-about a {
-        line-height: 1.5;
+        line-height: 1.4;
     }
     .hero .hero-image-desktop {
         width: 100%;

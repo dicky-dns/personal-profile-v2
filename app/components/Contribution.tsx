@@ -19,7 +19,6 @@ export default function Contribution() {
   const calendar = data?.user?.contributionsCollection.contributionCalendar;
   const total = calendar?.totalContributions ?? 0;
   const publicRepos = data?.publicRepos ?? 0;
-  const totalStars = data?.totalStars ?? 0;
   const topLanguages = data?.topLanguages ?? [];
   const months = data?.months ?? [
     "Jan",
@@ -151,7 +150,7 @@ export default function Contribution() {
                                 }}
                                 data-tooltip={
                                 day.date
-                                    ? `${day.contributionCount} contributions on ${format(
+                                    ? `${day.contributionCount > 0 ? day.contributionCount : 'No'} contributions on ${format(
                                         parseISO(day.date),
                                         "EEEE, MMM d yyyy"
                                     )}`

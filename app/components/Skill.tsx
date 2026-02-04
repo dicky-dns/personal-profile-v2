@@ -18,7 +18,7 @@ const project_types = [
       img: "/images/default.png",
       title: "Introduce My Profile",
       list: [
-        "3+ years web dev experience",
+        "Web dev  —  frontend & backend",
         "Clean & scalable builds",
         "Strong problem solver",
         "Performance-minded dev",
@@ -31,9 +31,10 @@ const project_types = [
       img: "/images/uses2.png",
       title: "Dev Stack",
       list: [
-        "HTML, CSS",
+        "HTML5, CSS",
         "Tailwind CSS, Bootstrap",
-        "JavaScript, jQuery",
+        "JavaScript", 
+        "jQuery",
         "Vue.js, Next.js",
         "PHP, Laravel, CodeIgniter"
       ]
