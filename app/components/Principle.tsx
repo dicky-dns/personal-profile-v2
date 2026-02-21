@@ -109,7 +109,7 @@ export default function Principle() {
   return (
     <section className="principle-section">
       <div className="principle-heading">
-        <Image src="/images/principle.png" alt="Logo" width={400} height={100} />
+        <Image src="/images/focused.png" alt="Logo" width={400} height={100} />
       </div>
       <div className="principle-subheading">
         The way I think, the way I build, and the standards I stick to.

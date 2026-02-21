@@ -1,5 +1,4 @@
 import AboutText from "./AboutText";
-import Experience from "./Experience";
 import Principle from "./Principle";
 
 export default function About() {
