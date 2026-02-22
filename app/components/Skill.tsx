@@ -107,14 +107,12 @@ export default function Skill() {
   const [active, setActive] = useState<string>("default");
 
   return (
-    <div className="page-wrapper">
+    <div className="container">
       <div className="power-up">
-
         <div className="power-up-selection">
           <div className="power-heading">
             <img src="/images/power-heading.gif" alt="Select your power-up" />
           </div>
-
           <div className="power-list">
             {powerItems.map((item) => (
               <div

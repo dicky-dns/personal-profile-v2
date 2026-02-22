@@ -830,7 +830,7 @@ a.text-about svg{
 .principle-heading{
     font-weight: 700;
     font-size: 18px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 .principle-heading img{
     height: 118px;
@@ -924,9 +924,8 @@ a.text-about svg{
     grid-auto-columns: 1fr;
     margin-bottom: 80px;
     margin-right: 0;
-    padding-left: 10%;
-    padding-right: 10%;
     display: grid;
+    position: relative;
 }
 .power-list {
     grid-column-gap: 0px;
@@ -1002,6 +1001,12 @@ a.text-about svg{
 }
 .power-heading{
     margin-bottom: 20px;
+    min-height: 160px;
+}
+.power-heading img{
+    width: 100%;
+    max-width: 457px;
+    position: absolute;
 }
 .project-types{
     position: relative;
@@ -1048,8 +1053,8 @@ a.text-about svg{
 }
 .contribution-heading{
     width: 100%;
-    max-width: 550px;
-    margin-bottom: 25px;
+    max-width: 580px;
+    margin-bottom: 35px;
     padding: 0 14px;
 }
 
@@ -2185,6 +2190,7 @@ a.text-about svg{
     .hero .hero-image-desktop {
         max-width: 800px;
     }
+
 }
 
 @media only screen and (min-width: 1135px) and (max-width: 1366px) {
@@ -2194,7 +2200,18 @@ a.text-about svg{
         width: 65px !important;
     }
     .power-box {
-        padding: 15px !important;
+        padding: 15px;
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .power-up {
+        grid-template-columns: 35% 40% 25%;
+    }
+    .character-select {
+        margin-top: 100px;
+    }
+    .character-select {
+        margin-top: 100px;
     }
 }
 
@@ -2221,10 +2238,18 @@ a.text-about svg{
     }
 }
 
-@media only screen and (min-width: 991px) and (max-width: 1134px) {
+@media only screen and (min-width: 992px) and (max-width: 1134px) {
     .power-up {
-        padding-left: 5%;
-        padding-right: 5%;
+        grid-template-columns: 35% 38% 27%;
+
+    }
+    .character-select img {
+        width: 120%;        
+        margin-left: -35px;
+
+    }
+    .project-list-box {
+        margin-top: 180px;
     }
     .power-box {
         padding: 15px !important;
@@ -2273,15 +2298,39 @@ a.text-about svg{
         max-width: 700px;
     }
     .power-up {
-        padding-left: 5%;
-        padding-right: 5%;
+        grid-column-gap: 0px;
+        grid-row-gap: 30px;
+        grid-template-rows: auto auto;
+        grid-template-columns: 60% 40%;
+        margin-bottom: 130px;
+    }
+    .power-up-selection {
+        grid-column-end: 3;
+    }
+    .project-list-box {
+        margin-top: 40px;
+    }
+    .power-heading{
+        min-height: 115px;
+    }
+    .power-heading img{
+        max-width: 330px;
+    }
+    .power-list {
+        grid-row-gap: 15px;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .character-select {
+        margin-top: 0;
     }
     .power-img {
         width: 50px;
         height: 50px;
-    }
-    .power-box {
-        padding: 12px !important;
     }
 
     .arm-one {
@@ -2339,7 +2388,7 @@ a.text-about svg{
     }
     .principle-heading img{
         height: auto;
-        max-width: 350px;
+        max-width: 230px;
         margin-bottom: 17px;
     }
     .contribution-heading {
@@ -2498,11 +2547,7 @@ a.text-about svg{
         padding-top: 5px;
     }
     .power-up {
-        grid-column-gap: 0px;
-        grid-row-gap: 30px;
-        grid-template-rows: auto auto;
-        grid-template-columns: 60% 40%;
-        margin-bottom: 130px;
+        grid-template-columns: 50% 50%;
     }
     .power-up-selection {
         grid-column-end: 3;
@@ -2517,7 +2562,14 @@ a.text-about svg{
         margin-right: auto;
     }
     .power-heading{
-        width: 65%;
+        width: 100%;
+    }
+    .character-select img {
+        width: 145%;
+        margin-left: -75px;
+    }
+    .power-box {
+        padding: 12px;
     }
     .arm-one {
         top: -50px !important;
@@ -2574,6 +2626,9 @@ a.text-about svg{
 }
 
 @media screen and (max-width: 620px) {  
+    .power-box {
+        padding: 20px;
+    }
     .about-section {
         padding: 20px 25px;
     }
@@ -2641,6 +2696,10 @@ a.text-about svg{
         border: 2px solid #000;
         border-radius:6px;
     }
+
+    .project-list-box{
+        margin-top: 30px;
+    }
     .contribution-left {
         width: 60%;
     }
@@ -2687,7 +2746,7 @@ a.text-about svg{
         font-size: 16px;
     }
     .power-up {
-        padding: 0 20px;
+        padding: 0 10px;
     }
     .experience-subheading {
         font-size: 16px;
@@ -2716,7 +2775,7 @@ a.text-about svg{
         height: auto;
         width: auto;
         width: 100%;
-        max-width:350px;
+        max-width:250px;
     }
     .principle-subheading {
         font-size: 16px;
@@ -2833,7 +2892,7 @@ a.text-about svg{
     }
 }
 
-@media only screen and (min-width: 550px) and (max-width: 620px) {
+@media (min-width: 550px) and (max-width: 620px) {
     .power-list {
         grid-template-columns: 1fr 1fr 1fr;
         width: 70%;
@@ -2880,13 +2939,15 @@ a.text-about svg{
         left: 45%;
     }
     .power-heading{
+        margin-bottom: 20px;
+        min-height: unset;
+    }
+    .power-heading img{
         width: 85%;
+        position: relative;
     }
     .project-heading img{
         margin-bottom: 18px;
-    }
-    .project-list-box{
-        margin-top: 3px;
     }
     .project-window:hover::after {
         opacity: 0;
@@ -3090,7 +3151,7 @@ a.text-about svg{
         width: 100%;
     }
     .power-box {
-        padding: 12px !important;
+        padding: 12px;
         aspect-ratio: 1 / 1;
         width: 100%;
         display: flex;
@@ -3108,6 +3169,9 @@ a.text-about svg{
         width: 100%;
         max-width: 100%;
         width: 100%;
+    }
+    .project-list-box{
+        margin-top: 3px;
     }
     .character-select{
         display: none;
@@ -3162,6 +3226,10 @@ a.text-about svg{
 }
 
 @media screen and (max-width: 449px) {
+    .principle-heading img{
+        height: auto;
+        width: 65%;
+    }
     .arm-one {
         top: 56px !important;
     }
