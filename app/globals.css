@@ -557,7 +557,7 @@ img {
 
 .hero .hero-image-desktop img,
 .hero .hero-image-mobile img {
-    height: calc(100dvh - 130px);
+    height: clamp(700px, calc(100dvh - 130px), calc(100dvh - 130px));
     width: auto;
     left: 50%;
     transform: translate3d(-50%, -150%, 0);

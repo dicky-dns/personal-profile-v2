@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const MESSAGE = "Oops! Cannot right click here.";
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
 type ToastState = {
   visible: boolean;
@@ -20,6 +21,8 @@ export default function RightClickWarning() {
   const isDesktopRef = useRef(false);
 
   useEffect(() => {
+    if (!IS_PRODUCTION) return;
+
     const mediaQuery = window.matchMedia("(pointer: fine)");
     const updateDevice = () => {
       isDesktopRef.current = mediaQuery.matches;
@@ -62,7 +65,7 @@ export default function RightClickWarning() {
     };
   }, []);
 
-  if (!toast.visible) return null;
+  if (!IS_PRODUCTION || !toast.visible) return null;
 
   return (
     <div
