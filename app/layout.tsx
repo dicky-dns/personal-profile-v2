@@ -10,6 +10,7 @@ import RightClickWarning from "./components/RightClickWarning";
 import ChatWidget from "./components/ChatWidget";
 import Footer from "./components/Footer";
 import DisableZoom from "./components/DisableZoom";
+import BatteryModal from "./components/BatteryModal";
 
 config.autoAddCss = false;
 
@@ -56,6 +57,8 @@ export default function RootLayout({
         <RightClickWarning />
         
         <DisableZoom />
+
+        <BatteryModal />
         
         {children}
 

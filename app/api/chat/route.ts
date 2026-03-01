@@ -5,32 +5,37 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 const profile = {
   name: "Dicky",
+  fullName: "Dicky Dwi Nur Setyo",
   role: "Web Developer",
+  experience: "frontend with tech stacks nexjs, vuejs, tailwind and bootstrap in styling and backend development with laravel. Familiar with database design and management using MySQL and PostgreSQL.",
   location: "Surakarta, Indonesia",
   summary: "Web developer yang fokus pada pengembangan web yang maintenable, functional, dan scallable.",
-  experience_years: 3,
   focus: ["Frontend", "Backend", "UI", "Logic", "Maintainable code", "Scalable code", "Performance", "Accessibility", "Data-driven", "User-friendly", "database design"],
   contact: {
     email: "dickydns1@gmail.com",
     github: "https://github.com/dickydns",
     linkedin: "https://www.linkedin.com/in/dickydns/",
-    Whatsapp: "https://wa.me/62895325927272"
+    Whatsapp: "https://wa.me/62895325927272",
+    Address: "Surakarta, Indonesia"
   }
 };
 
 function buildPrompt(message: string): string {
   return [
-    "Kamu adalah Aira, asisten AI untuk Dicky.",
+    "Kamu adalah Aira, asisten chat AI Dicky.",
     "Batasan: jawab seputar profil yang disediakan. Jangan mengarang di luar data.",
     "Sapaan atau small talk singkat (halo, hai, hello, apa kabar) diperbolehkan.",
     "Gaya: singkat, santai, dan relevan.",
+    "jika pertanyaaan memakai bahasa inggris, jawab dengan bahasa inggris. jika memakai bahasa indonesia, jawab dengan bahasa indonesia.",
+    "jika disuruh ganti ke bahasa lain, jawab dengan bahasa itu.",
     "",
     "Profil:",
     `Nama: ${profile.name}`,
+    `Nama Lengkap: ${profile.fullName}`,
     `Role: ${profile.role}`,
     `Lokasi: ${profile.location}`,
     `Ringkas: ${profile.summary}`,
-    `Pengalaman: ${profile.experience_years}+ tahun`,
+    `Pengalaman: ${profile.experience}`,
     `Fokus: ${profile.focus.join(", ")}`,
     `Kontak: ${profile.contact.email}`,
     "",
