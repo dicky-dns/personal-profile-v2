@@ -555,8 +555,7 @@ img {
     display: none;
 }
 
-.hero .hero-image-desktop img,
-.hero .hero-image-mobile img {
+.hero .hero-image-desktop img {
     height: clamp(700px, calc(100dvh - 130px), calc(100dvh - 130px));
     width: auto;
     left: 50%;
@@ -567,8 +566,14 @@ img {
     will-change: transform, opacity;
 }
 
-.hero .hero-image-mobile img {
+.hero .hero-image-mobile img,
+.hero .hero-image-mobile svg{
+    height: auto;
+    width: 100%;
+    left: 50%;
     transform: translate3d(-50%, -150%, 0);
+    position: absolute;  
+    top: 50%;
 }
 
 .hero .hero-image-desktop .image-d {
@@ -626,43 +631,43 @@ img {
   }
 }
 
-.hero .hero-image-mobile.is-ready .image-d {
+.hero .hero-image-mobile .image-d {
     animation: fallTopMobile 1.2s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-i {
+.hero .hero-image-mobile .image-i {
     animation: fallTopMobile 1.29s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-c {
+.hero .hero-image-mobile .image-c {
     animation: fallTopMobile 1.32s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-k {
+.hero .hero-image-mobile .image-k {
     animation: fallTopMobile 1.39s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-y {
+.hero .hero-image-mobile .image-y {
     animation: fallTopMobile 1.5s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-d {
+.hero .hero-image-mobile .image-d {
     animation: fallTopMobile 1.54s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-d2 {
+.hero .hero-image-mobile .image-d2 {
     animation: fallTopMobile 1.5s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-n {
+.hero .hero-image-mobile .image-n {
     animation: fallTopMobile 1.34s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-s {
+.hero .hero-image-mobile .image-s {
     animation: fallTopMobile 1.25s ease-out forwards;
 }
 
-.hero .hero-image-mobile.is-ready .image-icon {
+.hero .hero-image-mobile .image-icon {
     animation: fallTopMobile 1.6s ease-out forwards;
 }
 
@@ -2221,16 +2226,14 @@ a.text-about svg{
         font-weight: 700;
         opacity: 1;
     }
-    .hero .hero-image-desktop,
-    .hero .hero-image-mobile {
+    .hero .hero-image-desktop {
         position: relative;
         height: auto;
         width: calc(100% - 350px);
         margin: 0 auto;
     }
 
-    .hero .hero-image-desktop img,
-    .hero .hero-image-mobile img {
+    .hero .hero-image-desktop img {
         height: auto;
         width: 100%;
         left: 50%;
@@ -2529,13 +2532,8 @@ a.text-about svg{
         display: none;
     }
     .hero .hero-image-mobile {
-        width: 100%;
         max-width: 700px;
         display: block;
-    }
-    .hero .hero-image-mobile img {
-        top: 50%;
-        will-change: transform, opacity;
     }
     .image-acc{
         display: none;
