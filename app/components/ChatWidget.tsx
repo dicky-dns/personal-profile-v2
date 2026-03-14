@@ -21,6 +21,8 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isScrolling, setIsScrolling] = useState(true);
+  const [showBadge, setShowBadge] = useState(false);
+  const [badgeStopped, setBadgeStopped] = useState(false);
 
   const typingTimerRef = useRef<NodeJS.Timeout | null>(null);
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
@@ -109,7 +111,6 @@ export default function ChatWidget() {
     };
   }, [isOpen]);
 
-  // handle BACK button
   useEffect(() => {
     const handlePopState = () => {
       if (isOpen) {
@@ -124,7 +125,6 @@ export default function ChatWidget() {
     };
   }, [isOpen]);
 
-  // cleanup typing timer
   useEffect(() => {
     return () => {
       if (typingTimerRef.current) {
@@ -206,6 +206,52 @@ export default function ChatWidget() {
     resizeInput();
   }, [input]);
 
+  useEffect(() => {
+    let hideTimer: NodeJS.Timeout;
+
+    const showBadgeTemporarily = () => {
+      setShowBadge(true);
+
+      hideTimer = setTimeout(() => {
+        setShowBadge(false);
+      }, 5000); 
+    };
+
+    const interval = setInterval(() => {
+      showBadgeTemporarily();
+    }, 15000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (badgeStopped) return;
+
+    let hideTimer: NodeJS.Timeout;
+
+    const showBadgeTemporarily = () => {
+      if (badgeStopped) return;
+
+      setShowBadge(true);
+
+      hideTimer = setTimeout(() => {
+        setShowBadge(false);
+      }, 5000);
+    };
+
+    const interval = setInterval(() => {
+      showBadgeTemporarily();
+    }, 60000); // 1 menit
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(hideTimer);
+    };
+  }, [badgeStopped]);
+
   function closeChat() {
     setIsClosing(true);
 
@@ -219,8 +265,8 @@ export default function ChatWidget() {
   const handleChatOpen = () => {
     setIsOpen(true);
     setScrollingForMobile(false);
-
-    // push state supaya back button menutup chat dulu
+    setShowBadge(false);
+    setBadgeStopped(true);
     window.history.pushState({ chatOpen: true }, "");
   };
 
@@ -315,10 +361,15 @@ export default function ChatWidget() {
       <button
         onClick={handleChatOpen}
         className={`chat-toggle ${isOpen ? "is-hidden" : "is-visible"}`}
-        style={{ cursor: "url(/images/cpointer.png) 4 4, pointer" }}
+        style={{ cursor: "url(/images/cpointer.png) 4 4, pointer !important"}}
         aria-hidden={isOpen}
         tabIndex={isOpen ? -1 : 0}
       >
+        {showBadge && !badgeStopped && (
+        <span className="chat-toggle__badge">
+          <img src="/images/ask-away.png" alt="title messages" />
+        </span>
+        )}
         <img src="/images/cat.png" alt="Chat" />
       </button>
     </>
