@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type BatteryManagerLike = {
@@ -76,7 +77,7 @@ export default function BatteryModal() {
           aria-label="Close"
           onClick={() => setIsDismissed(true)}
         >
-          ✕
+          <Image src="images/close-white.svg" alt="Close Menu" fill/>
         </button>
         <div className="battery-modal__title">
           <span className="material-icons battery-modal__icon" aria-hidden>
@@ -85,7 +86,7 @@ export default function BatteryModal() {
           Low Battery
         </div>
         <div className="battery-modal__message">
-          Your device battery is at {percentage}%. Consider charging soon.
+          Your device battery’s at {percentage}%. Time to juice up.
         </div>
         <div className="battery-modal__progress" aria-hidden>
           <span style={{ width: `${percentage}%` }} />
