@@ -367,7 +367,7 @@ export default function ChatWidget() {
       >
         {showBadge && !badgeStopped && (
         <span className="chat-toggle__badge">
-          <img src="/images/ask-away.png" alt="title messages" />
+          <img src="/images/ask-me.png" alt="title messages" />
         </span>
         )}
         <img src="/images/cat.png" alt="Chat" />
