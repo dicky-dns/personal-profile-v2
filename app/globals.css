@@ -271,10 +271,11 @@ img {
 .chat-toggle__badge img {
     transform: scaleX(-1);
     position: fixed;
-    left: 70px;
-    bottom: 10px;
-    height: 70px;
+    left: 30px;
+    bottom: 50px;
+    height: 60px;
     width: auto;
+    transform: rotate(7deg) scaleX(-1);
 }
 
 .chat-toggle.is-hidden {
@@ -2898,9 +2899,10 @@ a.text-about svg{
         line-height: 1.2;
     }
     .chat-toggle__badge img {
-        left: 56px;
-        bottom: 10px;
-        height: 65px;
+        left: 30px;
+        bottom: 45px;
+        height: 40px;
+        transform: rotate(4) scaleX(-1);
     }
 }
 
