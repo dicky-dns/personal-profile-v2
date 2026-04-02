@@ -11,6 +11,7 @@ import ChatWidget from "./components/ChatWidget";
 import Footer from "./components/Footer";
 import DisableZoom from "./components/DisableZoom";
 import BatteryModal from "./components/BatteryModal";
+import RouteScrollReset from "./components/RouteScrollReset";
 
 config.autoAddCss = false;
 
@@ -52,6 +53,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <RouteScrollReset />
+
         <Navbar />
         
         <RightClickWarning />
