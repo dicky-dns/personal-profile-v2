@@ -212,7 +212,7 @@ export default function Contribution() {
                         <div className="github-repo-activity">
                             <span className="github-desktop">
                               {publicRepos} public repositories from GitHub 
-                              <a className="material-icons" target="_blank" href="https://github.com/dicky-dns">open_in_new</a>
+                              <a className="material-icons" target="_blank" href="https://github.com/dicky-dns?tab=repositories">open_in_new</a>
                             </span>
                             <span className="github-mobile">
                               Total {publicRepos} public repositories mostly built with {topLanguages ? topLanguages.join(", ") : ""}.
