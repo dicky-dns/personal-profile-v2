@@ -2411,6 +2411,12 @@ a.text-about svg{
         max-width: 230px;
         margin-bottom: 17px;
     }
+
+    .bookmark-heading img{
+        height: auto;
+        max-width: 330px;
+    }
+
     .contribution-heading {
         max-width: 400px;
         margin-bottom: 17px;
@@ -2937,6 +2943,12 @@ a.text-about svg{
         height: auto;
         width: 85%;
     }
+
+    .bookmark-heading img{
+        width: 100%;
+        max-width: 320px;
+    }
+
     .principle-box:hover{
         outline: 0;
         outline-offset: 0;
