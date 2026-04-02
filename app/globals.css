@@ -1118,6 +1118,7 @@ a.text-about svg{
     height: 49px;
     width: 49px;
     border-radius: 50%;
+    border: 2px solid #f5f5f5;
 }
 .github-content {
     text-align: center;
